@@ -1,0 +1,99 @@
+﻿@model DSS.BLL.DTO.Privacy_Complaints_DTO
+
+@{
+    ViewBag.Title = "Privacy_Complaints_Details";
+}
+
+<div>
+   <h1 style=" text-align: center;font-size: x-large;color: darkorange;font-weight: bold">Privacy Complaints - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+
+            <dd>
+               @ViewBag.list
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                Date Complaint Received:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Complain_Received)
+            </dd>
+
+            <dt>
+                Complaint Filed By:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Complain_Filed_By)
+            </dd>
+
+            <dt>
+                Type of Complaint:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type_of_Complaint)
+            </dd>
+
+            <dt>
+                Is Complaint Resolved (Y/N):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Is_Complaint_Resolved)
+            </dd>
+
+            <dt>
+                Description/Outcome:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description_Outcome)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Privacy_Complaints", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

@@ -1,0 +1,129 @@
+﻿
+
+<h2 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h2>
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h2 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h2>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:medium">
+                <th scope="col">
+                    <label>Employee Initials</label>
+                </th>
+                <th scope="col">
+                    <label>Position</label>
+                </th>
+                <th scope="col">
+                    <label>Time of Incident</label>
+                </th>
+                <th scope="col">
+                    <label>Shift</label>
+                </th>
+                <th scope="col">
+                    <label>Home Area</label>
+                </th>
+                <th scope="col">
+                    <label>Injury_Related</label>
+                </th>
+                <th scope="col">
+                    <label>Type of Injury</label>
+                </th>
+                <th scope="col">
+                    <label>Details of Incident</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.NotWSIBSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                    <tr style="font-size:small;color:black">
+                        <td scope="row">@ci.Employee_Initials</td>
+                        <td scope="row">@ci.Position</td>
+                        <td scope="row">@ci.Time_of_Incident</td>
+                        <td scope="row">@ci.Shift</td>
+                        <td scope="row">@ci.Home_Area</td>
+                        <td scope="row">@ci.Injury_Related</td>
+                        <td scope="row">@ci.Type_of_Injury</td>
+                        <td scope="row">@ci.Details_of_Incident</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h2 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h2>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Employee Initials</label>
+                    </th>
+                    <th scope="col">
+                        <label>Position</label>
+                    </th>
+                    <th scope="col">
+                        <label>Time of Incident</label>
+                    </th>
+                    <th scope="col">
+                        <label>Shift</label>
+                    </th>
+                    <th scope="col">
+                        <label>Home Area</label>
+                    </th>
+                    <th scope="col">
+                        <label>Injury_Related</label>
+                    </th>
+                    <th scope="col">
+                        <label>Type of Injury</label>
+                    </th>
+                    <th scope="col">
+                        <label>Details of Incident</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.NotWSIBSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                            <tr style="font-size:small;color:black">
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Employee_Initials)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Position)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Time_of_Incident)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Shift)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Home_Area)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Injury_Related)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Type_of_Injury)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Details_of_Incident)</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+
+
+
+

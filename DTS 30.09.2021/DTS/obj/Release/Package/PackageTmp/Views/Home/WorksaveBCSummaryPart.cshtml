@@ -1,0 +1,134 @@
+﻿
+
+
+
+
+
+<h2 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h2>
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h2 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h2>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:medium">
+                <th scope="col">
+                    <label>Inspection Report #</label>
+                </th>
+                <th scope="col">
+                    <label>Scope of Inspection</label>
+                </th>
+                <th scope="col">
+                    <label>No Orders</label>
+                </th>
+                <th scope="col">
+                    <label>Regulations Cited</label>
+                </th>
+                <th scope="col">
+                    <label>Brief Description of the Findings of the Order</label>
+                </th>
+                <th scope="col">
+                    <label>Action Plan</label>
+                </th>
+                <th scope="col">
+                    <label>Responsibility</label>
+                </th>
+                <th scope="col">
+                    <label>Status Of The Order</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.WorkshopSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                        <tr style="font-size:small;color:black">
+                            <td scope="row">@ci.InspecteReport</td>
+                            <td scope="row">@ci.ScopeOfInspectiont</td>
+                            <td scope="row">@ci.NoOrders</td>
+                            <td scope="row">@ci.Orders</td>
+                            <td scope="row">@ci.BriefDescFind</td>
+                            <td scope="row">@ci.ActionPlan</td>
+                            <td scope="row">@ci.Responsibility</td>
+                            <td scope="row">@ci.StatusOfTheOrder</td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h2 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h2>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Inspection Report #</label>
+                    </th>
+                    <th scope="col">
+                        <label>Scope of Inspection</label>
+                    </th>
+                    <th scope="col">
+                        <label>No Orders</label>
+                    </th>
+                    <th scope="col">
+                        <label>Regulations Cited</label>
+                    </th>
+                    <th scope="col">
+                        <label>Brief Description of the Findings of the Order</label>
+                    </th>
+                    <th scope="col">
+                        <label>Action Plan</label>
+                    </th>
+                    <th scope="col">
+                        <label>Responsibility</label>
+                    </th>
+                    <th scope="col">
+                        <label>Status Of The Order</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.WorkshopSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].CareComName == l)
+                        {
+                                <tr style="font-size:small;color:black">
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].InspecteReport)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].ScopeOfInspectiont)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].NoOrders)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Orders)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].BriefDescFind)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].ActionPlan)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Responsibility)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].StatusOfTheOrder)</td>
+                                </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+
+
+
+
+

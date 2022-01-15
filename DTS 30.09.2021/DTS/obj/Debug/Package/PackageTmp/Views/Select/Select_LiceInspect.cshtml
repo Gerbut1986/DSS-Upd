@@ -1,0 +1,191 @@
+﻿@model IEnumerable<DSS.BLL.DTO.LicensingInspectionDTO>
+@{
+    ViewBag.Title = " Licensing Inspections";
+}
+
+<h1 style="text-align: center; color: darkorange; font-weight: bold"> Licensing Inspections - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    using (Html.BeginForm())
+    {
+        <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+
+        <input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+        <input type="submit" style="background-color: darkorange;border-radius: 9px;color:black" value="⌄" name="btn-downSort" />
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <div style="width:300px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Inspection/Complaint # (where applicable)
+            </th>
+            <th>
+                Inspection Type/Reason:
+            </th>
+            <th>
+                No Findings
+            </th>
+            <th>
+                Residential Care Regulations
+            </th>
+            <th>
+                Community Care and Assisted Living Act
+            </th>
+            <th>
+                Residential Care Regulation Section
+            </th>
+            <th>
+                Residential Care Regulation Subsection
+            </th>
+            <th>
+                <div style="width:330px">
+                    Brief Description of Contravention
+                </div>
+            </th>
+            <th>
+                <div style="width:250px">
+                    Action Plan
+                </div>
+            </th>
+            <th>
+                Responsibility
+            </th>
+            <th>
+                Action Date
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @ViewBag.list[item.CareComName - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InspectComplaint)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.InspectTypeReason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoFinding)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Contraventions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CommCareLivAct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResidentCareRegSec)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResidentCareRegSub)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BriefDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ActionPlan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Responsibility)
+                </td>
+                <td>
+                    @if (item.ActionDate == DateTime.MinValue)
+                    {
+                        <sanp></sanp>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(modelItem => item.ActionDate)
+                    }
+                </td>
+                <td>
+                    <div style="width:200px;margin-top:10px">
+                        @Html.ActionLink("Edit", "Edit_LiceInspect", "Edit", new { id = item.Id }, new { id = "b" })
+                        @Html.ActionLink("Details", "Details_LiceInspect", "Details", new { id = item.Id }, new { id = "b" })
+                        @Html.ActionLink("Delete", "Delete_LiceInspect", "Delete", new { id = item.Id }, new { id = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h4 style="        text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">
+        @ViewBag.emptyMsg
+    </h4>
+}
+
+<style>
+    #b {
+        color: darkorange;
+        padding: 6px;
+        border: 1px solid darkorange;
+        border-radius: 10px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        #b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn {
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+        #btn:hover {
+        }
+</style>
+

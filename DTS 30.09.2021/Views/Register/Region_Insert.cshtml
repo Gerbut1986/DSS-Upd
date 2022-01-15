@@ -1,0 +1,43 @@
+﻿@model DTS.Models.RegionModel
+@{
+    ViewBag.Title = "Region_Insert";
+}
+
+<h2 style=" text-align:center;font-family:'Palatino Linotype';font-weight:bold">Select any Region (each one is a txt file)</h2>
+
+
+<div>
+    <div style="border:1px solid blue;border-radius:8px;padding:10px;width:650px;margin:auto;font-size:larger">
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-with", new { @Name = "region" })
+            Region 1:
+        </label>&nbsp; &nbsp;
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-without", new { @Name = "region" })
+            Region 2:
+        </label>&nbsp; &nbsp;
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-with", new { @Name = "region" })
+            Region 3:
+        </label>&nbsp; &nbsp;
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-without", new { @Name = "region" })
+            Region 4:
+        </label>&nbsp; &nbsp;
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-with", new { @Name = "region" })
+            Region 5:
+        </label>&nbsp; &nbsp;
+        <label style="font-size:medium" class="form-check-label">
+            @Html.RadioButtonFor(model => model.Name, "-without", new { @Name = "region" })
+            Region 6:
+        </label>&nbsp; &nbsp;
+    </div>
+
+    <br/>
+
+    <div style="margin:auto;width:100px">
+        <button type="submit" class="btn btn-primary">Selected</button>
+    </div>
+</div>
+

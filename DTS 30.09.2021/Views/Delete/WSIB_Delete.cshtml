@@ -1,0 +1,136 @@
+﻿@model DSS.BLL.DTO.WSIB_DTO
+
+@{
+    ViewBag.Title = "WSIB_Delete";
+}
+
+
+<h2 style="text-align: center; color: darkorange; font-weight: bold">WSIB - Delete Form</h2>
+
+<h1 style=" text-align: center; color: white;background-color: black;font-weight: bold">Are you sure you want to delete this record?</h1>
+<div id="center">
+    @*<h1 style="text-align:center;color:darkorange">WSIB <br /> ID - @Html.DisplayFor(id => id.Id)</h1>*@
+
+    <dl class="dl-horizontal">
+        <dt>
+            Date of Accident:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Accident)
+        </dd>
+
+        <dt>
+            Employee Initials/SSLI:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Initials)
+        </dd>
+
+        <dt>
+            Cause of Accident:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accident_Cause)
+        </dd>
+
+        <dt>
+            Date Mofified Duties Commenced:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Duties)
+        </dd>
+
+        <dt>
+            Actual Date Employee Returned to Regular Duties:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_Regular)
+        </dd>
+
+        <dt>
+            Number of Lost Days:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lost_Days)
+        </dd>
+
+        <dt>
+            Number of Modified Days (Not Shadowed):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_Days_Not_Shadowed)
+        </dd>
+
+        <dt>
+            Number of Modified Days (Shadowed):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Modified_Days_Shadowed)
+        </dd>
+
+        <dt>
+            Complete and File Form 7? Reed Group, if Applicable (Yes/No):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Form_7)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="cent" class="form-actions no-color">
+            <input id="centBtn" type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Back to All Records", "Select_WSIB", "Select", "", new { id = "back" })
+
+
+<style>
+    #cent, #centBtn {
+        width: 200px;
+        margin: auto;
+    }
+
+    #btn {
+        font-size: large;
+    }
+
+    #back {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #center {
+        width: 470px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+</style>

@@ -1,0 +1,395 @@
+﻿@model DSS.BLL.DTO.InspectionInfo_DTO
+
+@{
+    ViewBag.Title = "Inspection Info Insert";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - WOR Compliants sf</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand text-dark" href="#">Navbar</a>
+            <a class="navbar-brand text-dark" href="#">Navbar</a>
+            <a class="navbar-brand text-dark" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">@Html.ActionLink("WOR Tabs", "WOR_Tabs", "Home", "", new { @class = "nav-link text-white-50", style = "font-family:Time New Roman", id = "btn" })</li>
+                    <li class="nav-item">@Html.ActionLink("Upload Files", "Files", "Home", new { @class = "nav-link text-white-50", style = "font-family:Time New Roman", id = "btn" })</li>
+                    <li class="nav-item">@Html.ActionLink("Files", "AllFiles", "Home", new { @class = "nav-link text-white-50", style = "font-family:Time New Roman", id = "btn" })</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </nav>
+
+    <div style="width:1903px;padding:14px">
+        <hr />
+        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange;font-weight:bold">MOH Inspections</h1>
+        <hr hidden />
+        <hr />
+        <h2 style="text-align:center;color:green">@ViewBag.Success</h2>
+        <h2 style="text-align:center;color:red">@ViewBag.ErrMsg</h2>
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div style="">
+                <h1 style="font-family:'Palatino Linotype';margin:0 0 0 0;margin-top:22px">Inspection Information</h1>
+                <div class="row" style="padding:12px">
+                    <div class="col-sm-3" style="border: 1px solid darkorange; padding: 32px; width: 800px">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <ul class="nav nav-justified" style="margin-left:3px">
+                            <li class="nav-item">
+                                <label style="font-weight:bold">Inspection Number</label>
+                                @Html.TextBoxFor(model => model.InspectNumber, new { @class = "form-control", placeholder = "Inspection Number" })
+                                @Html.ValidationMessageFor(model => model.InspectNumber, "", new { @class = "text-danger" })
+                            </li>
+                            <li class="nav-item">
+                                <label style="font-weight:bold">Type Of Inspection</label>
+                                @Html.DropDownListFor(model => model.TypeId, ViewBag.List[0] as SelectList, new { @class = "form-control" })
+                            </li>
+                            <li class="nav-item">
+                                <label style="font-weight:bold">Home</label>
+                                @Html.DropDownListFor(model => model.HomeId, ViewBag.List[1] as SelectList, new { @class = "form-control" })
+                            </li>
+                        </ul>
+                        <ul class="nav nav-justified" style="margin-top:35px">
+                            <li class="nav-item">
+                                <label style="font-weight:bold">Report Date</label>
+                                @Html.EditorFor(model => model.ReportDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ReportDate, "", new { @class = "text-danger" })
+                            </li>
+                            <li class="nav-item">
+                                <label style="font-weight:bold">Last date of inspection</label>
+                                @Html.EditorFor(model => model.LastDate, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.LastDate, "", new { @class = "text-danger" })
+                            </li>
+                            <li class="nav-item" style="">
+                                <label style="font-weight: bold">No findings</label><br /> @Html.CheckBoxFor(model => model.NoFindings, new { style = "font-size:large;margin:0 0 0 45px" })
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="col-md" style="border:1px solid darkorange;padding:32px;margin-left:15px">
+                        <div id="file_upl" class="form-group" style="width:200px;margin:auto">
+                            <br /><br />
+                            @*@Html.TextBox("file", new { id = "FileUpload1" }, new { type = "file" })*@
+                        <div>
+                            <input id="fileinput" type="file" style="font-size:large" accept=".pdf, .doc, .docs, .docx, .csv, .xls, .xlsx">
+                        </div>
+                            <br />
+                            <div>
+                                <input style="font-size:larger" type="button" id="btnUpload" value="Upload File/s" />
+
+                                <h5 style="color:green;font-family:'Palatino Linotype'"> @ViewBag.UploadMsg</h5>
+
+                                @*@Html.ActionLink("See All Uploaded Files", "AllFiles", "Home", "", new { @class = "btn btn-danger", style = "font-size:large" })*@
+                            </div>
+                        </div>
+                    </div>
+
+                    <script type="text/javascript">
+                        var fileInput = document.getElementById("fileinput");
+                        var allow1 = ".pdf";
+                        var allow2 = ".doc";
+                        var allow3 = ".docs";
+                        var allow4 = ".docx";
+                        var allow5 = ".csv";
+                        var allow6 = ".xls";
+                        var allow7 = ".xlsx";
+
+                        fileInput.addEventListener("change", function () {
+                            // Check that the file extension is supported.
+                            // If not, clear the input.
+                            var hasInvalidFiles = false;
+                            for (var i = 0; i < this.files.length; i++) {
+                                var file = this.files[i];
+
+                                if (!file.name.endsWith(allow1) && !file.name.endsWith(allow2) && !file.name.endsWith(allow3) &&
+                                    !file.name.endsWith(allow4) && !file.name.endsWith(allow5) && !file.name.endsWith(allow6) &&
+                                    !file.name.endsWith(allow7)) {
+                                    hasInvalidFiles = true;
+                                }
+                            }
+
+                            if (hasInvalidFiles) {
+                                fileInput.value = "";
+                                alert("Unsupported file type was selected.");
+                            }
+                        });
+                    </script>
+
+                    <div class="col-sm-3" style="border:1px solid darkorange;padding:32px;width:450px;height:255px;margin-left:15px">
+                        @Html.Partial("AllFilesInspect")
+                    </div>
+                </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+                <script>
+                    $(document).ready(function () {
+                        $('#btnUpload').click(function () {
+
+                            // Checking whether FormData is available in browser
+                            if (window.FormData !== undefined) {
+
+                                var fileUpload = $("#fileinput").get(0);
+                                var files = fileUpload.files;
+
+                                // Create FormData object
+                                var fileData = new FormData();
+
+                                // Looping over all files and add it to FormData object
+                                for (var i = 0; i < files.length; i++) {
+                                    fileData.append(files[i].name, files[i]);
+                                }
+
+                                $.ajax({
+                                    url: '/Home/Uploded',
+                                    type: "POST",
+
+                                    contentType: false,
+                                    processData: false,
+                                    data: fileData,
+                                    success: function (result) {
+                                        window.location.href = window.location.href;
+                                        alert(result);
+                                    },
+                                    error: function (err) {
+                                        alert(err.statusText);
+                                    }
+                                });
+                            } else {
+                                alert("FormData is not supported.");
+                            }
+                        });
+                    });
+                </script>
+
+            </div>
+            <br />
+            <br />
+            <br />
+            <div style="margin-top: 12px;margin:auto;border:1px solid darkorange;padding:32px" class="row">
+                <h1 style="font-family:'Palatino Linotype';margin:0 0 0 0;margin-top:22px">Non-Compliance List</h1>
+                <div style="" class="row">
+
+                    @for (var i = 0; i < ViewBag.CountForm; i++)
+                    {
+                        @Html.Partial("View");<br /><br /><br />
+
+                    }
+
+                </div>
+            </div>
+
+            <br />
+            <div style="float:right">
+                @*@Ajax.ActionLink("Add New Non-Compliance", "Index", "Home", "", new AjaxOptions() { HttpMethod = "Get" }, new { id= "addnewCompl" });*@
+                <input name="btn-add" type="button" id="addnewCompl" value="Add New Non-Compliance" onclick="location.href='@Url.Action("InspectionInfoInsrt", "Home", new { data="11"})'" class="btn btn-success" />
+            </div>
+            @**@
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+            <script>
+                $(document).ready(function () {
+                    $('#addnewCompl').click(function () {
+                        $.ajax({
+                            url: '/Home/InspectionInfoInsrt',
+                            type: "Get",
+                            contentType: false,
+                            processData: false,
+                            data: fileData,
+
+                        });
+                    });
+                });
+            </script>
+
+
+            @Scripts.Render("~/bundles/jqueryval")
+            @Scripts.Render("~/bundles/jquery")
+            <script type="text/javascript">
+    //$(document).ready(function () {
+    //    $('#addnewCompl').onclick(function () {
+    //        var fileData = new FormData();
+    //                $.ajax({
+    //                        url: '/Home/Home',
+    //                        type: "POST",
+    //                        contentType: false,
+    //                        processData: false,
+    //                        data: fileData,
+    //                        success: function (result) {
+    //                            alert(result);
+    //                        },
+    //                        error: function (err) {
+    //                            alert(err.statusText);
+    //                        }
+    //                    });
+    //        });
+    //    });
+    // drop 1:
+        $(function () {
+        $('#state').change(function()
+        {
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetItem")/' + id,
+                success: function (data) {
+
+                    //
+                    $('#section').replaceWith(data);
+                     $('#section').change(function () {
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetSub1")/' + id,
+                success: function (data) {
+                    $('#subsection').replaceWith(data);
+                      $('#subsection').change(function () {
+            var id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '@Url.Action("GetSub2")/' + id,
+                success: function (data) {
+                    $('#other').replaceWith(data);
+                }
+            });
+        });
+                }
+            });
+        });
+                }
+            });
+        });
+        });
+
+    // drop 2:
+    $(function () {
+
+    });
+
+    // drop 3:
+    $(function () {
+
+    });
+            </script>
+            <br /><br /><br />
+            <div style="width:200px;margin:auto">
+                <input type="submit" name="btn-submit" value="Submit" class="btn btn-primary" style="width:300px" />
+            </div>
+        }
+
+
+
+        <style>
+            #section {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            }
+
+                #section:focus {
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                }
+
+            #subsection {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            }
+
+                #subsection:focus {
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                }
+
+            #other {
+                display: block;
+                width: 100%;
+                height: 34px;
+                padding: 6px 12px;
+                font-size: 14px;
+                line-height: 1.42857143;
+                color: #555555;
+                background-color: #fff;
+                background-image: none;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+                -webkit-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+                transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+            }
+
+                #other:focus {
+                    border-color: #66afe9;
+                    outline: 0;
+                    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+                }
+        </style>
+
+        <br /><br /><br />
+        <hr />
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>
+
+
+

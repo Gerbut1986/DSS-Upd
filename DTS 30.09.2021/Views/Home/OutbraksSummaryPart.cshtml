@@ -1,0 +1,152 @@
+﻿
+
+
+<h2 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h2>
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h2 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h2>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:medium">
+                <th scope="col">
+                    <label>Type of Outbreak</label>
+                </th>
+                <th scope="col">
+                    <label>Total Days Closed</label>
+                </th>
+                <th scope="col">
+                    <label>Total Residents Affected</label>
+                </th>
+                <th scope="col">
+                    <label>Total Staff Affected</label>
+                </th>
+                <th scope="col">
+                    <label>Strain Identified</label>
+                </th>
+                <th scope="col">
+                    <label>Death Due</label>
+                </th>
+                <th scope="col">
+                    <label>CI Report Submitted</label>
+                </th>
+                <th scope="col">
+                    <label>Notify MOL</label>
+                </th>
+                <th scope="col">
+                    <label>Credit For Lost Days</label>
+                </th>
+                <th scope="col">
+                    <label>Tracking Sheet Completed</label>
+                </th>
+                <th scope="col">
+                    <label>Docs Submitted Finance</label>     
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.OutbreaksSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                    <tr style="font-size:small;color:black">
+                        <td scope="row">@ci.Type_of_Outbreak</td>
+                        <td scope="row">@ci.Total_Days_Closed</td>
+                        <td scope="row">@ci.Total_Residents_Affected</td>
+                        <td scope="row">@ci.Total_Staff_Affected</td>
+                        <td scope="row">@ci.Strain_Identified</td>
+                        <td scope="row">@ci.Deaths_Due</td>
+                        <td scope="row">@ci.CI_Report_Submitted</td>
+                        <td scope="row">@ci.Notify_MOL</td>
+                        <td scope="row">@ci.Credit_for_Lost_Days</td>
+                        <td scope="row">@ci.Tracking_Sheet_Completed</td>
+                        <td scope="row">@ci.Docs_Submitted_Finance</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h2 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h2>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Type of Outbreak</label>
+                    </th>
+                    <th scope="col">
+                        <label>Total Days Closed</label>
+                    </th>
+                    <th scope="col">
+                        <label>Total Residents Affected</label>
+                    </th>
+                    <th scope="col">
+                        <label>Total Staff Affected</label>
+                    </th>
+                    <th scope="col">
+                        <label>Strain Identified</label>
+                    </th>
+                    <th scope="col">
+                        <label>Death Due</label>
+                    </th>
+                    <th scope="col">
+                        <label>CI Report Submitted</label>
+                    </th>
+                    <th scope="col">
+                        <label>Notify MOL</label>
+                    </th>
+                    <th scope="col">
+                        <label>Credit For Lost Days</label>
+                    </th>
+                    <th scope="col">
+                        <label>Tracking Sheet Completed</label>
+                    </th>
+                    <th scope="col">
+                        <label>Docs Submitted Finance</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.OutbreaksSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                            <tr style="font-size:small;color:black">
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Type_of_Outbreak)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Total_Days_Closed)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Total_Residents_Affected)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Total_Staff_Affected)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Strain_Identified)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Deaths_Due)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].CI_Report_Submitted)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Notify_MOL)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Credit_for_Lost_Days)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Tracking_Sheet_Completed)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Docs_Submitted_Finance)</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+
+

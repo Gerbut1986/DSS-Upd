@@ -1,0 +1,118 @@
+﻿
+
+<h3 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h3>
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h3 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h3>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:medium">
+                <th scope="col">
+                    <label>Union</label>
+                </th>
+                <th scope="col">
+                    <label>Category</label>
+                </th>
+                <th scope="col">
+                    <label>Details</label>
+                </th>
+                <th scope="col">
+                    <label>Status</label>
+                </th>
+                <th scope="col">
+                    <label>Accruals</label>
+                </th>
+                <th scope="col">
+                    <label>Outcome</label>
+                </th>
+                <th scope="col">
+                    <label>Lessons Learned</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.RelationsSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                    <tr style="font-size:small;color:black">
+                        <td scope="row">@ci.Union</td>
+                        <td scope="row">@ci.Category</td>
+                        <td scope="row">@ci.Details</td>
+                        <td scope="row">@ci.Status</td>
+                        <td scope="row">@ci.Accruals</td>
+                        <td scope="row">@ci.Outcome</td>
+                        <td scope="row">@ci.Lessons_Learned</td>                      
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h3 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h3>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Union</label>
+                    </th>
+                    <th scope="col">
+                        <label>Category</label>
+                    </th>
+                    <th scope="col">
+                        <label>Details</label>
+                    </th>
+                    <th scope="col">
+                        <label>Status</label>
+                    </th>
+                    <th scope="col">
+                        <label>Accruals</label>
+                    </th>
+                    <th scope="col">
+                        <label>Outcome</label>
+                    </th>
+                    <th scope="col">
+                        <label>Lessons Learned</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.RelationsSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                            <tr style="font-size:small;color:black">
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Union)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Category)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Details)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Status)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Accruals)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Outcome)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Lessons_Learned)</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+

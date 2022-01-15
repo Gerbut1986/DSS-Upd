@@ -1,0 +1,158 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Privacy_Complaints_DTO>
+
+@{
+    ViewBag.Title = "Privacy_Complaints";
+}
+
+    <h1 style="text-align:center;font-weight:bold;color:darkorange;margin-top:7px;">Privacy Complaints - All Records</h1>
+
+    @Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+    <br />
+    <br />
+    <br />
+    @if (ViewBag.err)
+    {
+        @*<h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>*@
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Location
+                    @*@Html.DisplayNameFor(model => model.Location)*@
+                </th>
+                <th>
+                    Status
+                    @*@Html.DisplayNameFor(model => model.Status)*@
+                </th>
+                <th>
+                    Date Complaint Received
+                    @*@Html.DisplayNameFor(model => model.Date_Complain_Received)*@
+                </th>
+                <th>
+                    Complaint Filed By
+                    @*@Html.DisplayNameFor(model => model.Complain_Filed_By)*@
+                </th>
+                <th>
+                    Type of Complaint
+                    @*@Html.DisplayNameFor(model => model.Type_of_Complaint)*@
+                </th>
+                <th>
+                    Is Complaint Resolved? (Y/N)
+                    @*@Html.DisplayNameFor(model => model.Is_Complaint_Resolved)*@
+                </th>
+                <th>
+                    Description/Outcome
+                    @*@Html.DisplayNameFor(model => model.Description_Outcome)*@
+                </th>
+
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @ViewBag.list[item.Location - 1]
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Complain_Received)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Complain_Filed_By)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type_of_Complaint)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Is_Complaint_Resolved)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description_Outcome)
+                    </td>
+                    <td id="btns">
+                        <div style="width:200px">
+                            @Html.ActionLink("Edit", "Edit_Privacy_Complaints", "Edit", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "Privacy_Complaints_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "Privacy_Complaints_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                        </div>   
+                    </td>
+                </tr>
+            }
+        </table>
+    }
+    else
+    {
+        <h4 style="text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">@ViewBag.emptyMsg</h4>
+    }
+
+
+    <style>
+        .b {
+            color: darkorange;
+            padding: 6px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+            .b:hover {
+                border: 1px solid darkorange;
+                padding: 5px;
+                color: white;
+                background-color: darkorange;
+                text-decoration: none;
+                border-radius: 10px;
+            }
+
+        #back {
+            text-decoration: none;
+            border: 2px solid darkorange;
+            color: darkorange;
+            border-radius: 25px;
+            padding: 14px;
+        }
+
+            #back:hover {
+                background-color: darkorange;
+                color: white;
+            }
+
+        .btnn {
+            text-decoration: none;
+        }
+
+        #btn {
+            padding: 5px;
+            text-align: center;
+            border-radius: 12px;
+        }
+
+            #btn:hover {
+           
+            }
+
+
+        #nameApp {
+            font-family: 'Times New Roman';
+            font-weight: bold;
+            font-size: x-large;
+            float: left;
+            height: 50px;
+            padding: 15px 15px;
+            font-size: 18px;
+            line-height: 20px;
+            color: darkorange;
+        }
+
+            #nameApp:hover {
+                text-decoration: none;
+                color: navajowhite;
+            }
+    </style>
+

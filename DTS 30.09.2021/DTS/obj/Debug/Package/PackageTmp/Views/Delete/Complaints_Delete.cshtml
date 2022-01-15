@@ -1,0 +1,272 @@
+﻿@model DSS.BLL.DTO.Complaint_DTO
+
+@{
+    ViewBag.Title = "Complaints_Delete";
+}
+
+<h2 style="text-align: center; color: darkorange; font-weight:bold">Complaints - Delete Form </h2>
+
+<h1 style="text-align:center;color:white;background-color:black">Are you sure you want to delete this record?</h1>
+<div id="center">
+    @*<h1 style="text-align:center;color:darkorange">Complaints <br /> ID - @Html.DisplayFor(id => id.Id)</h1>*@
+
+    <dl class="dl-horizontal">
+        <dt>
+            Date Received:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateReceived)
+        </dd>
+
+        <dt>
+            Location:&nbsp;
+        </dt>
+
+        <dd>
+            @ViewBag.list
+        </dd>
+
+        <dt>
+            Writen Or Verbal:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WritenOrVerbal)
+        </dd>
+
+        <dt>
+            Receive Directly:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Receive_Directly)
+        </dd>
+
+        <dt>
+            From Resident:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FromResident)
+        </dd>
+
+        <dt>
+            Resident Name:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResidentName)
+        </dd>
+
+        <dt>
+            Department:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            Home Area:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HomeArea)
+        </dd>
+
+
+        <dt>
+            Brief Description:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BriefDescription)
+        </dd>
+
+        <dt>
+            Is Administration:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IsAdministration)
+        </dd>
+
+        <dt>
+            Care Services:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CareServices)
+        </dd>
+
+        <dt>
+            Palliative Care:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PalliativeCare)
+        </dd>
+
+        <dt>
+            Dietary:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Dietary)
+        </dd>
+
+        <dt>
+            Housekeeping:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Housekeeping)
+        </dd>
+
+        <dt>
+            Laundry:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Laundry)
+        </dd>
+
+        <dt>
+            Maintenance:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Maintenance)
+        </dd>
+
+        <dt>
+            Programs:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Programs)
+        </dd>
+
+
+        <dt>
+            Admissions:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Admissions)
+        </dd>
+
+        <dt>
+            Physician:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Physician)
+        </dd>
+
+        <dt>
+            Other:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+
+        <dt>
+            Notified Licencing Body:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOHLTCNotified)
+        </dd>
+
+        <dt>
+            Copy To VP:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CopyToVP)
+        </dd>
+
+        <dt>
+            Response Sent:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResponseSent)
+        </dd>
+
+        <dt>
+            Action Token:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionToken)
+        </dd>
+
+        <dt>
+            Resolved:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resolved)
+        </dd>
+
+        <dt>
+            Ministry Visit:&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MinistryVisit)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="cent" class="form-actions no-color">
+            <input id="centBtn" type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>
+@Html.ActionLink("Back to All Records", "Select_Complaints", "Select", "", new { id = "back" })
+
+
+<style>
+    #cent, #centBtn {
+        width: 200px;
+        margin: auto;
+    }
+
+    #btn {
+        font-size: large;
+    }
+
+    #back {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #center {
+        width: 470px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+</style>

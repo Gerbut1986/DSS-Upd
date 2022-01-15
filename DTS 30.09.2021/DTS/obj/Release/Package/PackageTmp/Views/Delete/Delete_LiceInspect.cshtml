@@ -1,0 +1,156 @@
+﻿@model DSS.BLL.DTO.LicensingInspectionDTO
+
+@{
+    ViewBag.Title = "Delete_LiceInspect";
+}
+
+<h2 style="text-align: center; color: darkorange;font-weight: bold"> 	Licensing Inspections  - Delete Form</h2>
+
+<h1 style="text-align:center;color:white;background-color:black">Are you sure you want to delete this record?</h1>
+<div id="center">
+    @*<h1 style="text-align:center;color:darkorange">NOT WSIB <br /> ID - @Html.DisplayFor(id => id.Id)</h1>*@
+
+    <dl class="dl-horizontal">
+        <dt>
+            Location:
+        </dt>
+
+        <dd>
+            @ViewBag.list
+        </dd>
+
+        <dt>
+            Date:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            Inspection/Complaint # (where applicable):
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectComplaint)
+        </dd>
+
+        <dt>
+            Inspection Type/Reason:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectTypeReason)
+        </dd>
+
+        <dt>
+            No Findings:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoFinding)
+        </dd>
+
+        <dt>
+            Contraventions:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contraventions)
+        </dd>
+
+        <dt>
+            Residential Care Regulation Section:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResidentCareRegSec)
+        </dd>
+
+        <dt>
+            Residential Care Regulation Subsection:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResidentCareRegSub)
+        </dd>
+
+        <dt>
+            Brief Description of Contravention:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BriefDescription)
+        </dd>
+
+        <dt>
+            Action Plan:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionPlan)
+        </dd>
+        <dt>
+            Action Date:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionDate)
+        </dd>
+        <dt>
+            Responsibility:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsibility)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="cent" class="form-actions no-color">
+            <input id="centBtn" type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Back to All Records", "Select_LiceInspect", "Select", "", new { id = "back" })
+
+
+<style>
+    #cent, #centBtn {
+        width: 200px;
+        margin: auto;
+    }
+
+    #btn {
+        font-size: large;
+    }
+
+    #back {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+</style>

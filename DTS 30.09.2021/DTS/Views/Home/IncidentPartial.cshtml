@@ -1,0 +1,166 @@
+﻿
+<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+
+    <tr>
+        <th>
+            Date mm-dd-yyyy
+        </th>
+        <th>
+            CI Form Number
+        </th>
+        <th>
+            <div style="width:330px">
+                CI Category / Type
+            </div>
+        </th>
+        <th width="208%">
+            Location
+        </th>
+        <th>
+            <div style="width:330px">
+                Brief Description
+                </div>
+        </th>
+        <th>
+            MOH Notified
+        </th>
+        <th>
+            Police Notified
+        </th>
+        <th>
+            POA's Notified
+        </th>
+        <th>
+            Care Plan Updated
+        </th>
+        <th>
+            <div style="width:330px">
+                Brief Description Of Quality Improvement Action/Measures
+            </div>
+        </th>
+        <th>
+            MOHLTC Follow Up
+        </th>
+        <th>
+            Was CIS Initiated on Time
+        </th>
+        <th>
+            All Follow Up Amendments completed Ready for MOH Visit
+        </th>
+        <th>
+            Risk Locked
+        </th>
+        <th>
+            File Complete Ready for MOH
+        </th>
+        <th></th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        string[] ciNames = ViewBag.CiNames;
+        var list = (List<DSS.BLL.DTO.Critical_Incidents_DTO>)ViewBag.List;
+        var location = (List<DSS.BLL.DTO.Home_DTO>)ViewBag.AllLocs;
+        var ci = (List<DSS.BLL.DTO.CI_Category_Type_DTO>)ViewBag.AllCI;
+        foreach (var item in list)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CI_Form_Number)
+                </td>
+                <td>
+                    @if (ViewBag.IsAdmin == false) // if we entered as User
+                    {
+                        @ci[item.CI_Category_Type - 1].Name;
+                    }
+                    else
+                    {
+                        @ci[item.CI_Category_Type - 1].Name;
+                    }
+                </td>
+                <td>
+                    @if (ViewBag.IsAdmin == false) // if we entered as User
+                    {
+                        @location[item.Location - 1].Full_Home_Name;
+                    }
+                    else
+                    {
+                        @location[item.Location - 1].Full_Home_Name;
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brief_Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOH_Notified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Police_Notified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.POAS_Notified)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Care_Plan_Updated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quality_Improvement_Actions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOHLTC_Follow_Up)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CIS_Initiated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Follow_Up_Amendments)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Risk_Locked)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.File_Complete)
+                </td>
+                <td>
+                    <div style="width:200px">
+                        @Html.ActionLink("Edit", "Edit_Incidents", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Incidents_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Incident_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            border-radius: 10px;
+        }
+
+    th td {
+        width: 300px;
+    }
+</style>

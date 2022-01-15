@@ -1,0 +1,85 @@
+﻿@model DSS.BLL.DTO.OtherDTO
+
+<div>
+    <h1 style="text-align: center; font-size: x-large;color: darkorange;font-weight: bold">Others - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Date:
+            </dt>
+            <dd>
+                 @Html.DisplayFor(model=>model.Date)
+            </dd>
+            <dt>
+                Location:
+            </dt>
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Inspected By:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inspected_By)
+            </dd>
+
+            <dt>
+                Inspection Number:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Inspection_Number)
+            </dd>
+
+            <dt>
+                Number Of Violations:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Number_of_Violations)
+            </dd>
+
+            <dt>
+                Notes Comments:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Notes_Comments)
+            </dd>
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_Others", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

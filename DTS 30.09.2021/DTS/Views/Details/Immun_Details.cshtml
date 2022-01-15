@@ -1,0 +1,92 @@
+﻿@model DSS.BLL.DTO.Immunization_DTO
+
+@{
+    ViewBag.Title = "Immun_Details";
+}
+
+<div>
+    <h1 style="text-align: center; font-size: x-large;color: darkorange;font-weight: bold">Immunization - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Total Number of Residents in the Community:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Numb_Res_Comm)
+            </dd>
+
+            <dt>
+                Number of Residents Immunized:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Numb_Res_Immun)
+            </dd>
+
+            <dt>
+                Number of Residents Not Immunized:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Numb_Res_Not_Immun)
+            </dd>
+
+            <dt>
+                % of Residents Immunized:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Per_Res_Immun)
+            </dd>
+
+            <dt>
+                % of Residents Not Immunized:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Per_Res_Not_Immun)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_Immunization", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

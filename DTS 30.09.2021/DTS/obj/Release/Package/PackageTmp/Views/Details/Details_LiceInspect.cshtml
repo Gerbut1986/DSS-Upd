@@ -1,0 +1,137 @@
+﻿@model DSS.BLL.DTO.LicensingInspectionDTO
+
+@{
+    ViewBag.Title = "Details_LicenseInspect";
+}
+
+
+<div>
+    <h1 style="text-align: center;margin-top:15px;   font-size: x-large; color: darkorange; font-weight: bold">Licensing Inspections  - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                Inspection/Complaint # (where applicable):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InspectComplaint)
+            </dd>
+
+            <dt>
+                Inspection Type/Reason:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InspectTypeReason)
+            </dd>
+
+            <dt>
+                No Findings:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoFinding)
+            </dd>
+
+            <dt>
+                Contraventions:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Contraventions)
+            </dd>
+
+            <dt>
+                Residential Care Regulation Section:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResidentCareRegSec)
+            </dd>
+
+            <dt>
+                Residential Care Regulation Subsection:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResidentCareRegSub)
+            </dd>
+
+            <dt>
+                Brief Description of Contravention:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescription)
+            </dd>
+
+            <dt>
+                Action Plan:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionPlan)
+            </dd>
+            <dt>
+                Action Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionDate)
+            </dd>
+            <dt>
+                Responsibility:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Responsibility)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_LiceInspect", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

@@ -1,0 +1,179 @@
+﻿@model DSS.BLL.DTO.Education_DTO
+
+@{
+    ViewBag.Title = "EducationDetails";
+}
+
+<div>
+    <h1 style="text-align: center;   font-size: x-large; color: darkorange; font-weight: bold">Education - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Session Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Session_Name)
+            </dd>
+
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Jan:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Jan)
+            </dd>
+
+            <dt>
+                Feb:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Feb)
+            </dd>
+
+            <dt>
+                Mar:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Mar)
+            </dd>
+
+            <dt>
+                Apr:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Apr)
+            </dd>
+
+            <dt>
+                May:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.May)
+            </dd>
+
+            <dt>
+                June:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Jun)
+            </dd>
+
+            <dt>
+                July:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Jul)
+            </dd>
+
+            <dt>
+                Aug:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Aug)
+            </dd>
+
+            <dt>
+                Sep:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sep)
+            </dd>
+
+            <dt>
+                Oct:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Oct)
+            </dd>
+
+            <dt>
+                Nov:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Nov)
+            </dd>
+
+            <dt>
+                Dec:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dec)
+            </dd>
+
+            <dt>
+                Total Number Educated:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total_Numb_Educ)
+            </dd>
+
+            <dt>
+                Total Number Eligible:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Total_Numb_Eligible)
+            </dd>
+
+            <dt>
+                Approx. % Educated:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Approx_Per_Educated)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Education_Select", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

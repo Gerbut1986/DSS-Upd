@@ -1,0 +1,221 @@
+﻿@model DSS.BLL.DTO.Critical_Incidents_DTO
+
+@{
+    ViewBag.Title = "Insert";
+}
+
+<h1 style="color:darkorange;font-weight:bold;text-align:center">Critical Incidents - Entry Form</h1>
+<h3 style="text-align:center;color:red">@ViewBag.Empty</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ActionLink("Show All Records", "Select_Incidents", "Select", "", new { id = "select" })
+
+    <br />
+    
+    <div class="" style="width:500px;margin:auto">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="color:red">
+            * - Required fields
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label class = "control-label col-md-12" style="font-weight:bold">Date:<span style="color:red">*</span>
+            </label>
+            @*@Html.LabelFor("Date dd-mth-yyyy", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold"> CI Form Number:<span style="color:red">*</span>
+            </label>
+            @*@Html.Label("CI Form Number:*", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            @* @Html.LabelFor(model => model.CI_Form_Number, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.CI_Form_Number, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.CI_Form_Number, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">CI Category / Type:<span style="color:red">*</span>
+            </label>
+            @*@Html.Label("CI Category / Type:*", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            @* @Html.LabelFor(model => model.CI_Category_Type, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @* @Html.EditorFor(model => model.CI_Category_Type, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.DropDownListFor(model => model.CI_Category_Type, ViewBag.locations[1] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CI_Category_Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Location:<span style="color:red">*</span>
+            </label>
+            @*@Html.Label("Location:*", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            @*@Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Location, ViewBag.locations[0] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Brief Description:<span style="color:red">*</span>
+            </label>
+            @*@Html.Label("Brief Description:*", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })*@
+            @* @Html.LabelFor(model => model.Brief_Description, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Brief_Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Brief_Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("MOH Notified:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @* @Html.LabelFor(model => model.MOH_Notified, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MOH_Notified, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MOH_Notified, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Police Notified:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.Police_Notified, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Police_Notified, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Police_Notified, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("POA's Notified:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.POAS_Notified, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.POAS_Notified, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.POAS_Notified, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("CarePlan Updated:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.Care_Plan_Updated, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Care_Plan_Updated, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Care_Plan_Updated, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Brief Description of Quality Improvement Actions/Measures:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.Quality_Improvement_Actions, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Quality_Improvement_Actions, new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.Quality_Improvement_Actions, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Quality_Improvement_Actions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("MOHLTC Follow-up:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @* @Html.LabelFor(model => model.MOHLTC_Follow_Up, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MOHLTC_Follow_Up, ViewBag.locations[3] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MOHLTC_Follow_Up, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Was CIS Initiated on Time:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.CIS_Initiated, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CIS_Initiated, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.CIS_Initiated, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("All Follow-ups and Amendments:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.Follow_Up_Amendments, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Follow_Up_Amendments, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Follow_Up_Amendments, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Risk Locked:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.Risk_Locked, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Risk_Locked, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Risk_Locked, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("File Complete Ready for MOH:", htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })
+            @*@Html.LabelFor(model => model.File_Complete, htmlAttributes: new { @class = "control-label col-md-12", style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.File_Complete, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.File_Complete, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p></p>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add a New Record" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to WOR Tabs", "WOR_Tabs", "Home", new { id = "back" })
+</div>
+<br />
+<br />
+<hr />
+<style>
+
+    #back {
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        background-color: none;
+        color: brown
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #select {
+        border: 2px solid darkorange;
+        position: absolute;
+        color: darkorange;
+        border-radius: 22px;
+        padding: 7px;
+        text-decoration: none;
+    }
+
+        #select:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

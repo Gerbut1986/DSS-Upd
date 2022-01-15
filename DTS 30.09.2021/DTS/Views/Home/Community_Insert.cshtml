@@ -1,0 +1,165 @@
+﻿@model DSS.BLL.DTO.Community_Risks_DTO
+
+@{
+    ViewBag.Title = "Community_Insert";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h1 style="text-align:center;font-weight:bold;color:darkorange">Community Risks or Legal - Entry Form</h1>
+    <br />
+    <br />
+    @Html.ActionLink("Show All Records", "Select_Community", "Select", "", new { id = "select" })
+    <br />
+    <br />
+    <div class="form-horizontal" style="width:500px;margin:auto">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div style="color:red">
+            * - Required fields
+        </div>
+        <p></p>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Date:<span style="color:red">*</span></label>
+            @*@Html.Label("Date:*", htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            @*@Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Location:<span style="color:red">*</span></label>
+            @*@Html.Label("Location:*", htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            @*@Html.LabelFor(model => model.Location, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Location, ViewBag.locations[0] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Type of Risk:<span style="color:red">*</span></label>
+            @*@Html.Label("Type of Risk:*", htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            @*@Html.LabelFor(model => model.Type_Of_Risk, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Type_Of_Risk, ViewBag.locations[1] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Type_Of_Risk, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">Brief Description:<span style="color:red">*</span></label>
+            @*@Html.Label("Brief Description:*", htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            @*@Html.LabelFor(model => model.Descriptions, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Descriptions, new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.Descriptions, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.ValidationMessageFor(model => model.Descriptions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Potential Risk for MOH:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.Potential_Risk, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Potential_Risk, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Potential_Risk, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("MOH/Licensing Visit:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.MOH_Visit, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.MOH_Visit, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.MOH_Visit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Risk for Legal Action:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.Risk_Legal_Action, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Risk_Legal_Action, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Risk_Legal_Action, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Hot Alert Call:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.Hot_Alert, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Hot_Alert, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Hot_Alert, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Status Update:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.Status_Update, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Status_Update, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Status_Update, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Resolved:", htmlAttributes: new { @class = "control-label col-md-12", style = "font-weight:bold" })
+            @*@Html.LabelFor(model => model.Resolved, htmlAttributes: new { @class = "control-label col-md-12",  style="font-weight:bold" })*@
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Resolved, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Resolved, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <p></p>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10" style="        width: 255px;
+        margin: auto">
+                <input type="submit" value="Add a New Record" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+<div style="width:350px">
+    @Html.ActionLink("Back to WOR Tabs", "WOR_Tabs", "Home", new { id = "back" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<style>
+    #back {
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        background-color: none;
+        color: brown
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #select {
+        border: 2px solid darkorange;
+        position: absolute;
+        border-radius: 22px;
+        padding: 7px;
+        text-decoration: none;
+        color: darkorange;
+    }
+
+        #select:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>

@@ -1,0 +1,161 @@
+﻿@model DSS.BLL.DTO.Critical_Incidents_DTO
+
+@{
+    ViewBag.Title = "Incidents_Details";
+}
+
+<div>
+    <b><h1 style="text-align: center; font-size: x-large; color: darkorange;font-weight: bold">Critical Incidents - Detailed Record</h1></b>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Date (dd-mm-yyyy):&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                CI Form Number:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CI_Form_Number)
+            </dd>
+
+            <dt>
+                CI Category / Type:&nbsp;
+            </dt>
+
+            <dd>
+                @ViewBag.list[1]
+            </dd>
+
+            <dt>
+                Location:&nbsp;
+            </dt>
+
+            <dd>
+                @ViewBag.list[0]
+            </dd>
+
+            <dt>
+                Brief Description:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Brief_Description)
+            </dd>
+
+            <dt>
+                MOH Notified:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOH_Notified)
+            </dd>
+
+            <dt>
+                Police Notified:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Police_Notified)
+            </dd>
+
+            <dt>
+                POAS Notified:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.POAS_Notified)
+            </dd>
+
+            <dt>
+                Care Plan Updated:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Care_Plan_Updated)
+            </dd>
+
+            <dt>
+                Brief Description of Quality Improvement Actions/Measures:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Quality_Improvement_Actions)
+            </dd>
+
+            <dt>
+                MOHLTC Follow-up:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOHLTC_Follow_Up)
+            </dd>
+
+            <dt>
+                Was CIS Initiated on Time:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CIS_Initiated)
+            </dd>
+
+            <dt>
+                All follow up & amendments completed:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Follow_Up_Amendments)
+            </dd>
+
+            <dt>
+                Risk Locked:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Risk_Locked)
+            </dd>
+
+            <dt>
+                File Complete Ready for MOH:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.File_Complete)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_Incidents", "Select", "", new { id = "backBtn"})
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration:none;
+    }
+    #backBtn:hover {
+        background-color:blue;
+        color:white;
+    }
+</style>

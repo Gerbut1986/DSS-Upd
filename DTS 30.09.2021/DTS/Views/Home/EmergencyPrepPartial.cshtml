@@ -1,0 +1,96 @@
+﻿<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype';" class="table table-bordered">
+    <tr>
+        <th>
+            Location
+        </th>
+        <th>
+            Code
+        </th>
+        <th>
+            Exercise
+        </th>
+        <th>
+            Method
+        </th>
+        <th>
+            Date
+        </th>
+        <th></th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.Emergency_Prep_DTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+            <tr>
+                <td>
+                    <div style="width:350px">
+                        @names[item.Location - 1]
+                    </div>
+                </td>
+                <td>
+                    <div style="width:150px">
+                        @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    <div style="width:150px">
+                        @Html.DisplayFor(modelItem => item.Exercise)
+                    </div>
+                </td>
+                <td>
+                    <div style="width:150px">
+                        @Html.DisplayFor(modelItem => item.Method)
+                    </div>
+                </td>
+                <td>
+                    <div style="width:150px">
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </div>
+                </td>
+                <td>
+                    <div style="width:190px">
+                        @Html.ActionLink("Edit", "Edit_Emergency", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Emergency_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Emergency_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+
+            </tr>
+        }
+    }
+
+</table>
+<style>
+    #btns {
+    }
+
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+

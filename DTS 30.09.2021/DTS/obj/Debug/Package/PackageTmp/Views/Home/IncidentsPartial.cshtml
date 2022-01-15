@@ -1,0 +1,166 @@
+﻿
+
+<h3 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h3>
+
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h3 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h3>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:small">
+                <th scope="col">
+                    <label>CI Form Number</label>
+                </th>
+                <th scope="col">
+                    <label>CI Category/Type</label>
+                </th>
+                <th scope="col">
+                    <label>Brief Description</label>
+                </th>
+                <th scope="col">
+                    <label>MOH Notified</label>
+                </th>
+                <th scope="col">
+                    <label>Police Notified</label>
+                </th>
+                <th scope="col">
+                    <label>POAS Notified</label>
+                </th>
+                <th scope="col">
+                    <label>Care Plan Updated</label>
+                </th>
+                <th scope="col">
+                    <label>Quality Improvement Actions</label>
+                </th>
+                <th scope="col">
+                    <label>MOHLTC Follow Up</label>
+                </th>
+                <th scope="col">
+                    <label>CIS Initialated</label>
+                </th>
+                <th scope="col">
+                    <label>Follow Up Amendments</label>
+                </th>
+                <th scope="col">
+                    <label>Risk Locked</label>
+                </th>
+                <th scope="col">
+                    <label>File Complete</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.IncidentSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                        <tr style="font-size:small;color:black">
+                            <td scope="row">@ci.CI_Form_Number</td>
+                            <td scope="row">@ci.CI_Category_Type</td>
+                            <td scope="row">@ci.Brief_Description</td>
+                            <td scope="row">@ci.MOH_Notified</td>
+                            <td scope="row">@ci.Police_Notified</td>
+                            <td scope="row">@ci.POAS_Notified</td>
+                            <td scope="row">@ci.Care_Plan_Updated</td>
+                            <td scope="row">@ci.Quality_Improvement_Actions</td>
+                            <td scope="row">@ci.MOHLTC_Follow_Up</td>
+                            <td scope="row">@ci.CIS_Initiated</td>
+                            <td scope="row">@ci.Follow_Up_Amendments</td>
+                            <td scope="row">@ci.Risk_Locked</td>
+                            <td scope="row">@ci.File_Complete</td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h3 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h3>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>CI Form Number</label>
+                    </th>
+                    <th scope="col">
+                        <label>CI Category/Type</label>
+                    </th>
+                    <th scope="col">
+                        <label>Brief Description</label>
+                    </th>
+                    <th scope="col">
+                        <label>MOH Notified</label>
+                    </th>
+                    <th scope="col">
+                        <label>Police Notified</label>
+                    </th>
+                    <th scope="col">
+                        <label>POAS Notified</label>
+                    </th>
+                    <th scope="col">
+                        <label>Care Plan Updated</label>
+                    </th>
+                    <th scope="col">
+                        <label>Quality Improvement Actions</label>
+                    </th>
+                    <th scope="col">
+                        <label>MOHLTC Follow Up</label>
+                    </th>
+                    <th scope="col">
+                        <label>CIS Initialated</label>
+                    </th>
+                    <th scope="col">
+                        <label>Follow Up Amendments</label>
+                    </th>
+                    <th scope="col">
+                        <label>Risk Locked</label>
+                    </th>
+                    <th scope="col">
+                        <label>File Complete</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.CriticalIncidentSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                                <tr style="font-size:small;color:black">
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].CI_Form_Number)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].CI_Category_Type)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Brief_Description)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].MOH_Notified)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Police_Notified)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].POAS_Notified)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Care_Plan_Updated)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Quality_Improvement_Actions)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].MOHLTC_Follow_Up)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].CIS_Initiated)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Follow_Up_Amendments)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Risk_Locked)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].File_Complete)</td>
+                                </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+

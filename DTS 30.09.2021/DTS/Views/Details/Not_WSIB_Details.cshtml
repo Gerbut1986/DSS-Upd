@@ -1,0 +1,124 @@
+﻿@model DSS.BLL.DTO.Not_WSIBs_DTO
+
+@{
+    ViewBag.Title = "Not_WSIB_Details";
+}
+
+<div>
+    <h1 style="text-align:center;font-size:x-large;color:darkorange;font-weight: bold">Internal - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Date of Accident:
+            </dt>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_of_Incident)
+            </dd>
+
+            <dt>
+                Employee Initials/SSLI:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Employee_Initials)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Position):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Position)
+            </dd>
+
+            <dt>
+                Time of Incident:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Time_of_Incident)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Shift):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Shift)
+            </dd>
+
+            <dt>
+                Home Area/Location:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Home_Area)
+            </dd>
+
+            <dt>
+                Injury Related To:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Injury_Related)
+            </dd>
+
+            <dt>
+                Type of Injury:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type_of_Injury)
+            </dd>
+
+            <dt>
+                Details of Incident:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Details_of_Incident)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_Not_WSIB", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

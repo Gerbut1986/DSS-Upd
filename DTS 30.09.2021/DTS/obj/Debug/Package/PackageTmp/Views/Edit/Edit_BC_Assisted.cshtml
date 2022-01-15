@@ -1,0 +1,130 @@
+﻿@model DSS.BLL.DTO.BC_Assisted_Living_Reportable_Incidents_DTO
+
+@{
+    ViewBag.Title = "BC Assisted Living Reportable Incidents";
+}
+
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Reportable Incidents Assisted Living - Edit Form</h1>
+@Html.ActionLink("Show All Records", "Select_BC_LTC_Assisted", "Select", "", new { id = "select" })
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="" style="width:500px;margin:auto">
+        <h3 style="text-align:center;color:red">@ViewBag.Empty</h3>
+        <br />
+        <br />
+
+        <br />
+        <br />
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <p></p>
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">
+                Location:<span style="color:red">*</span>
+            </label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.NameCareCommu, ViewBag.locations[0] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NameCareCommu, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12" style="font-weight:bold">
+                Date of Incident:<span style="color:red">*</span>
+            </label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateIncident, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateIncident, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-8">Incident Type:</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.IncidentType, ViewBag.locations[1] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.IncidentType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12">Brief Description of the Incident:</label>
+            <div class="col-md-10">
+                @*Html.EditorFor(model => model.BriefDescrincident, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextAreaFor(model => model.BriefDescrincident, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BriefDescrincident, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12">Brief Description of the Actions Taken:</label>
+            <div class="col-md-10">
+                @*@Html.EditorFor(model => model.BriefDescrTaken, new { htmlAttributes = new { @class = "form-control" } })*@
+                @Html.TextAreaFor(model => model.BriefDescrTaken, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.BriefDescrTaken, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12">Notifications:</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.Notifications, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Notifications, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="width:190px;margin:auto">
+            <input type="submit" value="Update" class="btn btn-primary" />
+        </div>
+    </div>
+
+}
+
+<div>
+    <a id="back" href="~/Home/WOR_Tabs">Back to WOR Tabs</a>
+    @*@Html.ActionLink("Back to WOR Tabs", "WOR_Tabs", "Home", new { id = "back" })*@
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<style>
+    label {
+        font-weight: bold;
+    }
+
+    #back {
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        background-color: none;
+        color: brown
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #select {
+        border: 2px solid darkorange;
+        position: absolute;
+        border-radius: 22px;
+        padding: 7px;
+        text-decoration: none;
+        color: darkorange;
+    }
+
+        #select:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>
+

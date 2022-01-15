@@ -1,0 +1,124 @@
+﻿
+
+
+<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            <div style="width:300px">
+                Location
+            </div>
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Inspection Report #
+        </th>
+        <th>
+            Scope of Inspection
+        </th>
+        <th>
+            Regulations Cited
+        </th>
+        <th>
+            Brief Description of the Findings of the Order
+        </th>
+        <th>
+            Action Plan
+        </th>
+        <th>
+            Responsibility
+        </th>
+        <th>
+            Action Date
+        </th>
+        <th>
+            Status of the Order
+        </th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.WorkshopBCInspection_DTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+        <tr>
+            <td>
+                @names[item.CareComName - 1]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InspecteReport)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScopeOfInspectiont)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOrders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Orders)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BriefDescFind)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StatusOfTheOrder)
+            </td>
+            <td>
+                <div style="width:200px;margin-top:10px">
+                    @Html.ActionLink("Edit", "Edit_WorksaveBC", "Edit", new { id = item.Id }, new { id = "b" })
+                    @Html.ActionLink("Details", "Details_WorksaveBC", "Details", new { id = item.Id }, new { id = "b" })
+                    @Html.ActionLink("Delete", "Delete_WorksaveBC", "Delete", new { id = item.Id }, new { id = "b" })
+                </div>
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<style>
+    #btns {
+        width: 300px;
+    }
+
+    #b {
+        color: darkorange;
+        padding: 6px;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        #b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+
+
+

@@ -1,0 +1,149 @@
+﻿@model IEnumerable<DSS.BLL.DTO.BC_Assisted_Living_Reportable_Incidents_DTO>
+
+@{
+    ViewBag.Title = "Select_BC_LTC_Assisted";
+}
+
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Reportable Incidents Assisted Living - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+    <div id="tbl">
+        @using (Html.BeginForm("Select_BC_LTC_Assisted", "Select", FormMethod.Post))
+        {
+            <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+
+            <input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+            <input type="submit" style="background-color: darkorange;border-radius: 9px;color:black" value="⌄" name="btn-downSort" />
+        }
+        <table style="font-size:medium" class="table table-bordered">
+            <tr>
+                <th>
+                    <div style="width:300px">
+                        Location
+                    </div>
+                </th>
+                <th>
+                    Date of Incident
+                </th>
+                <th>
+                    Incident Type
+                </th>
+                <th>
+                    <div style="width:330px">
+                        Brief Description of the Incident
+                    </div>
+                </th>
+                <th>
+                    <div style="width:330px">
+                        Brief Description of the Actions Taken
+                    </div>
+                </th>
+                <th>
+                    <div style="width:200px">
+                        Notifications
+                    </div>
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @ViewBag.list[item.NameCareCommu - 1]
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateIncident)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IncidentType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BriefDescrincident)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BriefDescrTaken)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notifications)
+                    </td>
+                    <td>
+                        <div style="width:190px">
+                            @Html.ActionLink("Edit", "Edit_BC_Assisted", "Edit", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "Details_BC_Assisted", "Details", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "Delete_BC_Assisted", "Delete", new { id = item.Id }, new { @class = "b" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+
+}
+else
+{
+    <h4 style="        text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">
+        @ViewBag.emptyMsg
+    </h4>
+}
+
+
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        border: 1px solid darkorange;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn {
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+        #btn:hover {
+        }
+</style>
+

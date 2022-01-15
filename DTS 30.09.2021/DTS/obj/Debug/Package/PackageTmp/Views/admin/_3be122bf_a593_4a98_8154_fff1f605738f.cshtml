@@ -1,0 +1,222 @@
+﻿@model IEnumerable<DTS.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "All Users";
+}
+
+<p style="text-align:right;color:darkred;font-family:'Times New Roman'">
+    Local Machine's Host Name:
+    IP 1:
+    @ViewBag.CurrIP1
+</p>
+<p style="text-align:right;color:darkred;font-family:'Times New Roman'">
+    Local Machine's Host Name:
+    IP 2:
+    @ViewBag.CurrIP2
+</p>
+<h1 style="text-align:center;font-weight:bold;color:darkorange;font-family:'Palatino Linotype';font-weight:bold">Users - All Records</h1>
+
+@*<div style="width:220px;margin:auto">
+        @Html.ActionLink("-- Create New User --", "Register_New_User", "Register", "", new { @class = "btn btn-danger" })
+    </div>*@
+
+@Html.ActionLink("Add New Region", "Region_Insert", "Register", "", new { id = "region" })
+
+<br />
+<br />
+<br />
+
+@if (ViewBag.err == false)
+{
+    <h3 style="color:red;text-align:center;font-family:'Palatino Linotype'">@ViewBag.</h3>
+    <h4 style="text-align:center;color:red;border:2px solid red;border-radius:9px;padding:12px">@ViewBag.emptyMsg</h4>
+}
+else
+{
+    using (Html.BeginForm("_3be122bf_a593_4a98_8154_fff1f605738f", "admin",FormMethod.Post))
+    {
+    <input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+    <input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<br/>
+        if (ViewBag.AlloState == "Allow")
+        {
+        <h3 style="color:green;font-family:'Palatino Linotype';font-weight:bold;text-align:center">@ViewBag.SuccessEmailConfirm</h3>
+        }
+        else if (ViewBag.AlloState == "Decline")
+        {
+        <h3 style="color:red;font-family:'Palatino Linotype';font-weight:bold;text-align:center">@ViewBag.SuccessEmailConfirm</h3>
+        }
+    using (Html.BeginForm())
+    {
+        <table class="table table-bordered tab-danger">
+            <tr>
+                <th>
+                    <div style="width:50px">
+                        Email Confirmed
+                    </div>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th>
+                    Care Community
+                </th>
+                <th>
+                    <div style="width:150px">
+                        @Html.DisplayNameFor(model => model.Position)
+                    </div>
+                </th>
+                <th>
+                    <div style="width:150px">
+                        User Name
+                    </div>
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Region)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Role)
+                </th>
+                <th>
+                    Phone Number
+                </th>
+                <th>
+                    <div style="width:150px">
+                        Date of Registration
+                    </div>
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <div style="display:inline">
+                            @if (item.Role.Equals("Admin"))
+                            {
+                                <span style="font-weight:bold;font-family:'Palatino Linotype';color:darkorange">
+                                    Admin(Owner) &nbsp;
+                                </span>
+                            }
+                            else
+                            {
+                                if (item.EmailConfirmed == false)
+                                {
+                                    @Html.ActionLink("Allow", "AllowDecline", "admin", new { id = item.Id, btn = "btn-allow" }, new { @class = "btn btn-success" })
+                                }
+                                else
+                                {
+                                    @Html.ActionLink("Decline", "AllowDecline", "admin", new { id = item.Id, btn = "btn-decline" }, new { @class = "btn btn-danger" })
+                                }
+                            }
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <div style="width:200px">
+                            @if (item.Care_Community == 0 || item.Care_Community < 0)
+                            {
+                                <span style="color:red">Please assign a Location</span>
+                            }
+                            else
+                            {
+                                <span>@ViewBag.Location[item.Care_Community - 1]</span>
+                            }
+                        </div>
+                    </td>
+                    <th>
+                        <div style="width:170px">
+                            @if (item.Position == 0 || item.Position < 0)
+                            {
+                                <span style="color:red">Please assign a Position</span>
+                            }
+                            else
+                            {
+                                <span>@ViewBag.Position[item.Position - 1]</span>
+                            }
+                        </div>
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Region)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateRegister)
+                    </td>
+                    <td>
+                        <div style="width:190px">
+                            @Html.ActionLink("Edit", "Edit_User", "admin", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "DetailsUser", "admin", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "DeleteUser", "admin", new { id = item.Id }, new { @class = "b" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+        }
+    }
+}
+
+<style>
+    #region {
+        border: 2px solid brown;
+        border-radius: 22px;
+        float: right;
+        padding: 11px;
+        text-decoration: none;
+        background-color: brown;
+        color: white;
+    }
+
+        #region:hover {
+            background-color: white;
+            color: brown;
+        }
+
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        text-decoration: none;
+        border-radius: 9px;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        border-radius: 25px;
+        padding: 14px;
+        color: darkorange;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>
+

@@ -1,0 +1,124 @@
+﻿@model DSS.BLL.DTO.Privacy_Breaches_DTO
+
+@{
+    ViewBag.Title = "Privacy_Breaches_Details";
+}
+
+<div>
+    <h1 style="text-align: center;font-size: x-large;color: darkorange;font-weight: bold">Privacy Breaches - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Location):
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+
+            <dt>
+                Date Breach Occurred:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Breach_Occurred)
+            </dd>
+
+            <dt>
+                Date Breach Reported:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Breach_Reported)
+            </dd>
+
+            <dt>
+                Breach Reported By:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Breach_Reported_By)
+            </dd>
+
+            <dt>
+                Type of Breach:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type_of_Breach)
+            </dd>
+
+            <dt>
+                Type of PHI Involved:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Type_of_PHI_Involved)
+            </dd>
+
+            <dt>
+                Number of Individuals Affected:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Number_of_Individuals_Affected)
+            </dd>
+
+            <dt>
+                Description/Outcome:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description_Outcome)
+            </dd>
+
+            <dt>
+                Risk Level:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Risk_Level)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to All Records", "Privacy_Breaches", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

@@ -1,0 +1,132 @@
+﻿@model DSS.BLL.DTO.WorkshopBCInspection_DTO
+
+@{
+    ViewBag.Title = "Worksave BC - Details";
+}
+
+<div>
+    <h1 style="text-align: center;margin-top:15px;   font-size: x-large; color: darkorange; font-weight: bold">Worksafe BC Inspections  - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                Inspection Report #:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InspecteReport)
+            </dd>
+
+            <dt>
+                Scope of Inspection:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ScopeOfInspectiont)
+            </dd>
+
+            <dt>
+                No Orders:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoOrders)
+            </dd>
+
+            <dt>
+                Regulations Cited:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Orders)
+            </dd>
+
+            <dt>
+                Brief Description of the Findings of the Order:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescFind)
+            </dd>
+
+            <dt>
+                Action Plan:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionPlan)
+            </dd>
+            <dt>
+                Responsibility:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Responsibility)
+            </dd>
+            <dt>
+                Action Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionDate)
+            </dd>
+            <dt>
+                Status of the Order:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.StatusOfTheOrder)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_WorksaveBC", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>
+
+
+
+
+

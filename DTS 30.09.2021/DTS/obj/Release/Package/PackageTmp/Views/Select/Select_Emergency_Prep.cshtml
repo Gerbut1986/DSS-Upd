@@ -1,0 +1,114 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Emergency_Prep_DTO>
+
+@{
+    ViewBag.Title = "Select_Emergency_Prep";
+}
+
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Emergency Prep - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exercise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Method)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                <div style="width:50px">
+                    <h6 style="color:green;text-align:center"> Commands</h6>
+                </div>
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @ViewBag.list[item.Location - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Code)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Exercise)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Method)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                        @Html.ActionLink("Edit", "Edit_Emergency", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Emergency_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Emergency_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                </td>
+                
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h4 style="text-align:center;color:white;border:2px solid red;border-radius:9px;padding:12px;background:red">@ViewBag.emptyMsg</h4>
+}
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-decoration:none;
+        text-align: center;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn {
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+        #btn:hover {
+            background-color: blue;
+        }
+</style>

@@ -1,0 +1,114 @@
+﻿@model DSS.BLL.DTO.QualityReview_DTO
+
+@{
+    ViewBag.Title = "Details Quality Review";
+}
+
+
+<div>
+    <h1 style="text-align: center;margin-top:15px;   font-size: x-large; color: darkorange; font-weight: bold">Quality Reviews/QACR - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Location:
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                <span style="font-size:larger">
+                    Outcomes:
+                </span>
+            </dt>
+
+            <dt>
+                Standard:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Outcomes)
+            </dd>
+
+            <dt>
+               Brief Description of the Findings:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescFind)
+            </dd>
+
+            <dt>
+               Brief Description of the Recommendations:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescRecommend)
+            </dd>
+
+            <dt>
+                Action Plan:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Actions)
+            </dd>
+
+            <dt>
+                Responsibility:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Responsibility)
+            </dd>
+
+            <dt>
+                Action Date:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionDate)
+            </dd>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_QualityReview", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>
+

@@ -1,0 +1,159 @@
+﻿@model DSS.BLL.DTO.AssistedLivingInspectionDTO
+
+@{
+    ViewBag.Title = "Delete Assisted Living Inpect";
+}
+
+<h2 style="text-align: center; color: darkorange;font-weight: bold"> Assisted Living Inpections - Delete Form</h2>
+
+<h1 style="text-align:center;color:white;background-color:black">Are you sure you want to delete this record?</h1>
+<div id="center">
+    <dl class="dl-horizontal">
+        <dt>
+            Care Community
+        </dt>
+
+        <dd>
+            @ViewBag.list
+        </dd>
+
+        <dt>
+            Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            Inspection/Complaint # (where applicable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectComplaint)
+        </dd>
+
+        <dt>
+            Inspection Type/Reason:
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InspectTypeReason)
+        </dd>
+
+        <dt>
+            Tick-box for no findings
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoFinding)
+        </dd>
+
+        <dt>
+            Assisted Living Regulation
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AssistLivReg)
+        </dd>
+        <dt>
+            Community Care and Assisted Living Act
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AssistLivAct)
+        </dd>
+        <dt>
+            Section of the Act or Regulation
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ActOrReg)
+        </dd>
+        <dt>
+            Subsection of the Act or Regulation
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SubActOrReg)
+        </dd>
+        <dt>
+            Category
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+        <dt>
+            Brief Description of the finding/observation
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BriefDescOfFinding)
+        </dd>
+        <dt>
+            Action Plan
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionPlan)
+        </dd>
+        <dt>
+            Action Date
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionDate)
+        </dd>
+        <dt>
+            Responsibility
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsibility)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="cent" class="form-actions no-color">
+            <input id="centBtn" type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Back to All Records", "Select_AssistLivInspect", "Select", "", new { id = "back" })
+
+
+<style>
+    #cent, #centBtn {
+        width: 200px;
+        margin: auto;
+    }
+
+    #btn {
+        font-size: large;
+    }
+
+    #back {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+</style>
+

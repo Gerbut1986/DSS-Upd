@@ -1,0 +1,665 @@
+﻿@model IEnumerable<DTS.Controllers.AdminLTEController.EmergencyCode>
+
+<br />
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+
+@if (ViewBag.Role == "User")
+{
+    <h2 style="text-align:center;font-family:'Palatino Linotype';color:darkorange;font-weight:bold">Emergency Prep - @ViewBag.Home</h2>
+
+    <br />
+    <br />
+    <br />
+    <table style="font-size:medium" class="table table-bordered">
+           <tr>
+            <th>
+                Code:
+            </th>
+            <th>
+                <div style="">
+                    Jan
+                </div>
+            </th>
+            <th>
+                <div style="">  Feb</div>
+            </th>
+            <th>
+                <div style="">  Mar</div>
+            </th>
+            <th>
+                <div style="">  Apr</div>
+            </th>
+            <th>
+                <div style=""> May</div>
+            </th>
+            <th>
+                <div style="">  Jun</div>
+            </th>
+            <th>
+                <div style="">  Jul</div>
+            </th>
+            <th>
+                <div style=""> Aug</div>
+            </th>
+            <th>
+                <div style="">  Sep</div>
+            </th>
+            <th>
+                <div style=""> Oct</div>
+            </th>
+            <th>
+                <div style="">  Nov</div>
+            </th>
+            <th>
+                <div style=""> Dec</div>
+            </th>
+        </tr>
+
+        @using (Html.BeginForm())
+        {
+            foreach (var item in Model)
+            {
+                string oo = $"Code {item.Code} - {item.Exercise}";
+                string date = $"{item.Date.Day}-{ViewBag.Month[item.Date.Month - 1]}-{item.Date.Year}";
+                <tr>
+                    @if (item.Code.Equals("Red"))
+                    {
+                        <td style="background-color: red; color: white">
+                            <label style="padding:1px;width:200px;font-weight:bold">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Black"))
+                    {
+                        <td style="background-color: black; color: white">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("White"))
+                    {
+                        <td style="background-color: white; color: black">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Blue"))
+                    {
+                        <td style="background-color: blue; color: white">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Green"))
+                    {
+                        <td style="background-color: darkgreen; color: white">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Orange"))
+                    {
+                        <td style="background-color: darkorange; color: white">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Yellow"))
+                    {
+                        <td style="background-color: yellow">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Brown"))
+                    {
+                        <td style="background-color: brown; color: white">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    else if (item.Code.Equals("Gray"))
+                    {
+                        <td style="background-color: gray">
+                            <label style="padding:1px">@oo</label>
+                        </td>
+                    }
+                    <td>
+                        @if (item.Date.Month == 1)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Date.Month == 2)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Date.Month == 3)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 4)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 5)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 6)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 7)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 8)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 9)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Date.Month == 10)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+                    <td>
+                        @if (item.Date.Month == 11)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+
+                    <td>
+                        @if (item.Date.Month == 12)
+                        {
+                            <label style="">@date</label>
+                        }
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+else if (ViewBag.Role == "RegionalUser")
+{
+
+    int count = Model.Count();
+    var listLocs = ViewBag.Locs;
+    var list = Model.ToList();
+    int cnt = ViewBag.Locs.Count;
+    int prevIndx = 0;
+    for (int i = 0; i < cnt; i++)
+    {
+        <h2 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">Emergency Prep - @ViewBag.Home</h2>
+        <h3 style="text-align:center;color:darkorange">@listLocs[i]</h3>
+
+
+        <table style="font-size:medium" class="table table-bordered">
+            <tr>
+                <th>
+                    Code:
+                </th>
+                <th>
+                    <div style="">
+                        Jan
+                    </div>
+                </th>
+                <th>
+                    <div style="">Feb</div>
+                </th>
+                <th>
+                    <div style="">  Mar</div>
+                </th>
+                <th>
+                    <div style="">  Apr</div>
+                </th>
+                <th>
+                    <div style=""> May</div>
+                </th>
+                <th>
+                    <div style="">  Jun</div>
+                </th>
+                <th>
+                    <div style="">  Jul</div>
+                </th>
+                <th>
+                    <div style=""> Aug</div>
+                </th>
+                <th>
+                    <div style="">  Sep</div>
+                </th>
+                <th>
+                    <div style="">Oct</div>
+                </th>
+                <th>
+                    <div style=""> Nov</div>
+                </th>
+                <th>
+                    <div style=""> Dec</div>
+                </th>
+            </tr>
+
+            @using (Html.BeginForm())
+            {
+
+                for (int j = prevIndx; j < list.Count(); j++)
+                {
+                    if (list[j] == null)
+                    { prevIndx = j + 1; break; }
+                    else
+                    {
+                        string oo = $"Code {list[j].Code} - {list[j].Exercise}";
+                        string date = $"{list[j].Date.Day}-{ViewBag.Month[list[j].Date.Month - 1]}-{list[j].Date.Year}";
+                        <tr>
+                            @if (list[j].Code.Equals("Red"))
+                            {
+                                <td style="background-color: red; color: white">
+                                    <label style="padding:1px;width:200px;font-weight:bold">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Black"))
+                            {
+                                <td style="background-color: black; color: white">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("White"))
+                            {
+                                <td style="background-color: white; color: black">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Blue"))
+                            {
+                                <td style="background-color: blue; color: white">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Green"))
+                            {
+                                <td style="background-color: darkgreen; color: white">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Orange"))
+                            {
+                                <td style="background-color: darkorange; color: white">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Yellow"))
+                            {
+                                <td style="background-color: yellow">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Brown"))
+                            {
+                                <td style="background-color: brown; color: white">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            else if (list[j].Code.Equals("Gray"))
+                            {
+                                <td style="background-color: gray">
+                                    <label style="padding:1px">@oo</label>
+                                </td>
+                            }
+                            <td>
+                                @if (list[j].Date.Month == 1)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+                            <td>
+                                @if (list[j].Date.Month == 2)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+                            <td>
+                                @if (list[j].Date.Month == 3)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 4)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 5)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 6)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 7)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 8)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 9)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+                            <td>
+                                @if (list[j].Date.Month == 10)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+                            <td>
+                                @if (list[j].Date.Month == 11)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+
+                            <td>
+                                @if (list[j].Date.Month == 12)
+                                {
+                                    <label style="">@date</label>
+                                }
+                            </td>
+                        </tr>
+                    }
+                }
+            }
+        </table>
+
+        <br />
+        <br />
+                } }
+            else // if Admin or SuperUser
+            {
+                int count = Model.Count();
+                var listLocs = ViewBag.Locs;
+                var list = Model.ToList();
+                int cnt = ViewBag.Locs.Count;
+                int prevIndx = 0;
+                for (int i = 0; i < cnt; i++)
+                {
+<h2 style = "text-align:center;font-family:'Palatino Linotype';color:darkorange" > Emergency Prep - @ViewBag.Home </h2 >
+
+ <h3 style = "text-align:center;color:darkorange" > @listLocs[i] </h3 >
+
+
+
+  <table style = "font-size:medium" class="table table-bordered">
+<tr>
+    <th>
+        Code:
+    </th>
+    <th>
+        <div style = "">
+            Jan
+        </div >
+    </th >
+    <th >
+        <div style = "">Feb</div>
+    </th>
+    <th>
+        <div style = ""> Mar </div >
+    </th >
+    <th>
+        <div style = "">  Apr</div>
+    </th>
+    <th>
+        <div style = ""> May </div >
+    </th >
+    <th>
+        <div style = "">  Jun</div>
+    </th>
+    <th>
+        <div style = ""> Jul </div >
+    </th>
+    <th>
+        <div style = ""> Aug</div>
+    </th>
+    <th>
+        <div style = ""> Sep </div >
+    </th >
+    <th>
+        <div style = "">Oct</div>
+    </th>
+    <th>
+        <div style = ""> Nov </div >
+    </th>
+    <th>
+        <div style = ""> Dec</div>
+    </th> 
+</tr>
+
+@using(Html.BeginForm())
+        {
+
+            for (int j = prevIndx; j < list.Count(); j++)
+            {
+                if (list[j] == null)
+                { prevIndx = j + 1; break; }
+                else
+                {
+                    string oo = $"Code {list[j].Code} - {list[j].Exercise}";
+                    string date = $"{list[j].Date.Day}-{ViewBag.Month[list[j].Date.Month - 1]}-{list[j].Date.Year}";
+            <tr >
+                @if(list[j].Code.Equals("Red"))
+                            {
+                    <td style = "background-color: red; color: white" >
+
+                         <label style = "padding:1px;width:200px;font-weight:bold" > @oo </label >
+
+                    </td>
+                }
+                else if (list[j].Code.Equals("Black"))
+                    {
+                    <td style = "background-color: black; color: white" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                }
+                    else if (list[j].Code.Equals("White"))
+                    {
+                    <td style = "background-color: white; color: black" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Blue"))
+                    {
+                    <td style = "background-color: blue; color: white" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Green"))
+                    {
+                    <td style = "background-color: darkgreen; color: white" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Orange"))
+                    {
+                    <td style = "background-color: darkorange; color: white" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Yellow"))
+                    {
+                    <td style = "background-color: yellow" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Brown"))
+                    {
+                    <td style = "background-color: brown; color: white" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+                    else if (list[j].Code.Equals("Gray"))
+                    {
+                    <td style = "background-color: gray" >
+
+                         <label style = "padding:1px" > @oo </label >
+
+                    </td>
+                            }
+               <td>
+                    @if(list[j].Date.Month == 1)
+                                {
+                        <label style = "" > @date </label >
+                    }
+              </td>
+               <td>
+                    @if(list[j].Date.Month == 2)
+                                {
+                        <label style = "" > @date </label >
+                    }
+              </td>
+               <td>
+                    @if(list[j].Date.Month == 3)
+                                {
+                        <label style = "" > @date </label >
+                    }
+              </td>
+
+               <td>
+                    @if(list[j].Date.Month == 4)
+                                {
+                        <label style = "" > @date </label >
+                    }
+              </td>
+
+                <td >
+                    @if(list[j].Date.Month == 5)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+
+                <td >
+                    @if(list[j].Date.Month == 6)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+
+                <td >
+                    @if(list[j].Date.Month == 7)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+
+                <td >
+                    @if(list[j].Date.Month == 8)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+
+                <td >
+                    @if(list[j].Date.Month == 9)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+                <td >
+                    @if(list[j].Date.Month == 10)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td>
+                <td>
+                    @if(list[j].Date.Month == 11)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td>
+
+                <td >
+                    @if(list[j].Date.Month == 12)
+                                {
+                        <label style = "" > @date </label >
+                    }
+                </td >
+            </tr >
+                    }
+            }
+        }
+</table>
+
+<br />
+<br />
+}
+}
+
+
+<style >
+#back {
+text-decoration: none;
+border: 2px solid darkorange;
+border-radius: 25px;
+padding: 14px;
+color: darkorange;
+}
+
+#back:hover {
+background-color: darkorange;
+color: white;
+}
+</style>

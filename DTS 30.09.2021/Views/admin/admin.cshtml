@@ -1,0 +1,53 @@
+﻿@using DTS.Models
+@model LoginViewModel
+@{
+    Layout = null;
+    ViewBag.Title = "Log in";
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link href="~/Content/AdminCss.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+</head>
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="wrapper fadeInDown">
+            <h4 style="color:red;font-family:'Palatino Linotype'">
+                @*  *@
+                @ViewBag.DoesnExist
+            </h4>
+            <div id="formContent">
+                <!-- Tabs Titles -->
+                <!-- Icon -->
+                <div class="fadeIn first">
+                    <img src="~/Logo/Sienna_AdminPage.png" id="icon" alt="User Icon" />
+                </div>
+
+                <!-- Login Form -->
+                <form>
+                    @Html.TextBoxFor(u => u.Email, new { placeholder = "login", @class = "fadeIn second", id = "login" })
+                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                    @Html.TextBoxFor(p => p.Password, new { placeholder = "password", @class = "fadeIn third", id = "password" })
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })<br />
+                    <input type="submit" class="fadeIn fourth" value="Log In">
+                </form>
+
+                <!-- Remind Passowrd -->
+                <div id="formFooter">
+                    @Html.ActionLink("Forgot Password?", "", "", null, new { @class = "underlineHover" })
+                </div>
+
+            </div>
+        </div>
+    }
+    <style>
+    </style>
+</body>
+</html>

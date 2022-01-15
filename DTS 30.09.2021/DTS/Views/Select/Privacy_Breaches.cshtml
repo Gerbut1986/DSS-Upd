@@ -1,0 +1,183 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Privacy_Breaches_DTO>
+
+@{
+    ViewBag.Title = "Privacy_Breaches";
+}
+
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Privacy Breaches - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+    using (Html.BeginForm("Privacy_Breaches", "Select", FormMethod.Post))
+    {
+        <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+
+        <input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+        <input type="submit" style="background-color: darkorange;border-radius: 9px;color:black" value="⌄" name="btn-downSort" />
+    }
+    <div id="tbl">
+        <table style="font-size:medium" class="table table-bordered">
+            <tr>
+                <th>
+                    <div style="width:220px">
+                        Location
+                    </div>
+                </th>
+                <th>
+                    Status
+                </th>
+                <th>
+                    Date Breach Occurred
+                </th>
+                <th>
+                    Date Breach Reported
+                </th>
+                <th>
+                    Breach Reported By
+                </th>
+                <th>
+                    Type of Breach
+                </th>
+                <th>
+                    Type of PHI Involved
+                </th>
+                <th>
+                    Number of Individuals Affected
+                </th>
+                <th>
+                    <div style="width:330px">
+                        Description/Outcome
+                    </div>
+                </th>
+                <th>
+                    Risk Level
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @ViewBag.list[item.Location - 1]
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Status)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Breach_Occurred)
+                    </td>
+                    <td>
+                        @if (item.Date_Breach_Reported == DateTime.MinValue)
+                        {
+                            <sanp></sanp>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Date_Breach_Reported)
+                        }
+                    </td>
+                    <td>
+                        @if (item.Date_Breach_Reported == DateTime.MinValue)
+                        {
+                            <sanp></sanp>
+                        }
+                        else
+                        {
+                            @Html.DisplayFor(modelItem => item.Date_Breach_Reported_By)
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type_of_Breach)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type_of_PHI_Involved)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Number_of_Individuals_Affected)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Description_Outcome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Risk_Level)
+                    </td>
+                    <td>
+                        <div style="width:190px">
+                            @Html.ActionLink("Edit", "Edit_Privacy_Breaches", "Edit", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "Privacy_Breaches_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "Privacy_Breaches_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+}
+else
+{
+    <h4 style="        text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">
+        @ViewBag.emptyMsg
+</h4>
+}
+<style>
+    #tbl {
+        padding: 8px;
+    }
+
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        border: 1px solid darkorange;
+        border-radius: 10px;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn {
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+        #btn:hover {
+            background-color: blue;
+        }
+</style>

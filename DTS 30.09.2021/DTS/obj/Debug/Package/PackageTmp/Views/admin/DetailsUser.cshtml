@@ -1,0 +1,105 @@
+﻿@model DTS.Models.ApplicationUser
+@{
+    ViewBag.Title = "Details User";
+}
+
+<div>
+    <h1 style="text-align: center;font-size: x-large;font-family:'Palatino Linotype'; color: darkorange; font-weight: bold">User - Detailed Record</h1>
+    <hr />
+    @{ 
+        int i = 0;
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                First Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                Last Name:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                Position:
+            </dt>
+
+            <dd>
+                <span hidden>@i  = @Html.DisplayFor(model => model.Position) - 1;</span>
+                @ViewBag.positions[i]
+            </dd>
+
+            <dt>
+                Care Community:
+            </dt>
+
+            <dd>
+                <span hidden>
+                    @i  = @Html.DisplayFor(model => model.Care_Community) - 1;
+                </span>
+                @ViewBag.locations[i]
+            </dd>
+
+            <dt>
+                Date Register:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateRegister)
+            </dd>
+
+            <dt>
+                Role:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Role)
+            </dd>
+
+            <dt>
+                Region:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Region)
+            </dd>
+        </dl>
+    </div>
+        }
+    <p>
+        @Html.ActionLink("Back to All Records", "GetAllUsers", "admin", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 450px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 33px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

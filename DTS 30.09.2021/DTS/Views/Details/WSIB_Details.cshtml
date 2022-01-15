@@ -1,0 +1,116 @@
+﻿@model DSS.BLL.DTO.WSIB_DTO
+
+@{
+    ViewBag.Title = "WSIB_Details";
+}
+
+<div>
+    <h1 style="text-align: center; font-size: x-large;color: darkorange; font-weight: bold">WSIB - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Date of Accident:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Accident)
+            </dd>
+
+            <dt>
+                Employee Initials/SSLI:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Employee_Initials)
+            </dd>
+
+            <dt>
+                Cause of Accident:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Accident_Cause)
+            </dd>
+
+            <dt>
+                Date Modified Duties Commenced:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Duties)
+            </dd>
+
+            <dt>
+                Actual Date Employee Returned to Regular Duties:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date_Regular)
+            </dd>
+
+            <dt>
+                Number of Lost Days:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Lost_Days)
+            </dd>
+
+            <dt>
+                Number of Modified Days (Not Shadowed):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Modified_Days_Not_Shadowed)
+            </dd>
+
+            <dt>
+                Number of Modified Days (Shadowed):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Modified_Days_Shadowed)
+            </dd>
+
+            <dt>
+                Complete and File Form 7? Reed Group, if Applicable (Yes/No):
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Form_7)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_WSIB", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #backBtn:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+</style>

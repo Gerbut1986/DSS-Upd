@@ -1,0 +1,154 @@
+﻿@model DSS.BLL.DTO.QualityReview_DTO
+
+@{
+    ViewBag.Title = "Quality Rewiew Insert";
+}
+
+
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Quality Reviews/QACR  - Entry Form</h1>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.ActionLink("Show All Records", "Select_QualityReview", "Select", "", new { id = "select" })
+<div class="" style="width:500px;margin:auto">
+    <h3 style="text-align:center;color:red">@ViewBag.Empty</h3>
+    <br />
+    <br />
+
+    @*<br />
+        <br />
+        <hr />*@
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div style="color:red">
+        * - Required fields
+    </div>
+    <p></p>
+    <div class="form-group">
+        <label class="control-label col-md-12" style="font-weight:bold">
+            Location:<span style="color:red">*</span>
+        </label>
+        <div class="col-md-10">
+            @Html.DropDownListFor(model => model.CareComName, ViewBag.locations as SelectList, "", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.CareComName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-12" style="font-weight:bold">
+            Date:<span style="color:red">*</span>
+        </label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br />
+    <label class="control-label col-md-12" style="font-size:x-large">Outcomes:</label><br />
+    <div class="form-group">
+        <label class="control-label col-md-12">Standard:</label>
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Outcomes, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Outcomes, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-12">Brief Description of the Findings:</label>
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.BriefDescFind, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BriefDescFind, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="control-label col-md-12">Brief Description of the Recommendations:</label>
+        <div class="col-md-10">
+            @Html.TextAreaFor(model => model.BriefDescRecommend, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.BriefDescRecommend, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <br /><br />
+    <div style="padding:16px;border:1px solid;border-radius:12px;width:450px">
+
+        <div class="form-group">
+            <label class="control-label col-md-12"> Action Plan:</label>
+            <div class="col-md-10">
+                @Html.TextAreaFor(model => model.Actions, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Actions, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12"> Responsibility:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Responsibility, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Responsibility, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-12"> Action Date:</label>
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ActionDate, new { htmlAttributes = new { @class = "form-control" } })
+            </div>
+        </div>
+
+    </div>
+    <br />
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10" style="width:255px;margin:auto">
+            <input type="submit" value="Add a New Record" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+
+
+<div>
+    <a id="back" href="~/Home/WOR_Tabs">Back to WOR Tabs</a>
+</div>
+
+<style>
+    label {
+        font-weight: bold;
+    }
+
+    #back {
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        background-color: none;
+        color: brown
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #select {
+        border: 2px solid darkorange;
+        position: absolute;
+        border-radius: 22px;
+        padding: 7px;
+        text-decoration: none;
+        color: darkorange;
+    }
+
+        #select:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>
+
+
+
+
+
+
+

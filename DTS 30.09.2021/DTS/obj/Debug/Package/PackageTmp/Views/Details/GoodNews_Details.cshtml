@@ -1,0 +1,165 @@
+﻿@model DSS.BLL.DTO.Good_News_DTO
+
+@{
+    ViewBag.Title = "GoodNews_Details";
+}
+
+
+<div>
+    <h1 style="text-align:center;font-size:x-large;color:darkorange;font-weight:bold">Good News - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                 Date News: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateNews)
+            </dd>
+
+            <dt>
+                Category: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+
+            <dt>
+                Department: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+
+            <dt>
+                Source of Compliment: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.SourceCompliment)
+            </dd>
+
+            <dt>
+                Description of Compliment/Recognition: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description_Complim)
+            </dd>
+
+            <dt>
+                Location: &nbsp;
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Respect: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Respect)
+            </dd>
+
+            <dt>
+                Passion: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Passion)
+            </dd>
+
+            <dt>
+                Teamwork: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Teamwork)
+            </dd>
+
+            <dt>
+                Responsibility: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Responsibility)
+            </dd>
+
+            <dt>
+                Growth: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Growth)
+            </dd>
+
+            <dt>
+                Compliment/Picture Communicated to SSO Marketing: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Compliment)
+            </dd>
+
+            <dt>
+                Spot Awards: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Spot_Awards)
+            </dd>
+
+            <dt>
+                Awards Received (Yes/No): &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Awards_Received)
+            </dd>
+
+            <dt>
+                Description of Community Inititives as per KPI: &nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Community_Inititives)
+            </dd>
+
+        </dl>
+    </div>
+</div>
+<p>
+    @Html.ActionLink("Back to All Records", "Select_GoodNews", "Select", "", new { id = "backBtn" })
+</p>
+
+
+<style>
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

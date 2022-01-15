@@ -1,0 +1,182 @@
+﻿@model DSS.BLL.DTO.Good_News_DTO
+
+@{
+    ViewBag.Title = "GoodNews_Delete";
+}
+<h2 style="text-align: center;color: darkorange;font-weight: bold">Good News - Delete Form</h2>
+
+<h1 style="text-align:center;color:white;background-color:black">Are you sure you want to delete this record?</h1>
+<div id="center">
+    @*<h1 style="text-align:center;color:darkorange">Good News <br /> ID - @Html.DisplayFor(id => id.Id)</h1>*@
+
+    <dl class="dl-horizontal">
+        <dt>
+            Date News :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateNews)
+        </dd>
+
+        <dt>
+            Category :&nbsp; 
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Category)
+        </dd>
+
+        <dt>
+            Department :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Department)
+        </dd>
+
+        <dt>
+            Source Compliment :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SourceCompliment)
+        </dd>
+
+        <dt>
+            Description of Compliment/Recognition :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description_Complim)
+        </dd>
+
+        <dt>
+            Location :&nbsp;
+        </dt>
+
+        <dd>
+            @ViewBag.list
+        </dd>
+
+        <dt>
+            Respect :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Respect)
+        </dd>
+
+        <dt>
+            Passion :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passion)
+        </dd>
+
+        <dt>
+            Teamwork :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teamwork)
+        </dd>
+
+        <dt>
+            Responsibility :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Responsibility)
+        </dd>
+
+        <dt>
+            Growth :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Growth)
+        </dd>
+
+        <dt>
+            Compliment/Picture Communicated to SSO Marketing :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Compliment)
+        </dd>
+
+        <dt>
+            Spot Awards Details :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spot_Awards)
+        </dd>
+
+        <dt>
+            Awards Received (Yes/No):&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Awards_Received)
+        </dd>
+
+        <dt>
+            Description of Community Inititives as per KPI :&nbsp;
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Community_Inititives)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div id="cent" class="form-actions no-color">
+            <input id="centBtn" type="submit" value="Delete" class="btn btn-danger" />
+        </div>
+    }
+</div>
+
+@Html.ActionLink("Back to All Records", "Select_GoodNews", "Select", "", new { id = "back" })
+
+
+<style>
+    #cent, #centBtn {
+        width: 200px;
+        margin: auto;
+    }
+
+    #btn {
+        font-size: large;
+    }
+
+    #back {
+        float: left;
+        border: 2px solid blue;
+        border-radius: 22px;
+        position: absolute;
+        padding: 11px;
+        text-decoration: none;
+        color: blue;
+    }
+
+        #back:hover {
+            text-decoration: none;
+            background-color: black;
+            color: white
+        }
+
+    #center {
+        width: 370px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+</style>

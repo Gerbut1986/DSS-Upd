@@ -1,0 +1,253 @@
+﻿@model DSS.BLL.DTO.Complaint_DTO
+
+@{
+    ViewBag.Title = "Complaints_Details";
+}
+
+<div>
+    <h1 style="text-align: center;font-size: x-large; color:darkorange; font-weight: bold">Complaints - Detailed Record</h1>
+
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Date Received:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.DateReceived)
+            </dd>
+
+            <dt>
+                Location:&nbsp;
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Writen Or Verbal:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.WritenOrVerbal)
+            </dd>
+
+            <dt>
+                Received Directly:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Receive_Directly)
+            </dd>
+
+            <dt>
+                From Resident:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FromResident)
+            </dd>
+
+            <dt>
+                Resident's Full Name:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResidentName)
+            </dd>
+
+            <dt>
+                Department:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Department)
+            </dd>
+
+
+            <dt>
+                Home Area:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.HomeArea)
+            </dd>
+
+            <dt>
+                Brief Description:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescription)
+            </dd>
+
+            <dt>
+                Is Administration:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsAdministration)
+            </dd>
+
+            <dt>
+                Care Services:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CareServices)
+            </dd>
+
+            <dt>
+                Palliative Care:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PalliativeCare)
+            </dd>
+
+            <dt>
+                Dietary:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dietary)
+            </dd>
+
+            <dt>
+                Housekeeping:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Housekeeping)
+            </dd>
+
+            <dt>
+                Laundry:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Laundry)
+            </dd>
+
+            <dt>
+                Maintenance:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Maintenance)
+            </dd>
+
+            <dt>
+                Programs:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Programs)
+            </dd>
+
+            <dt>
+                Admissions:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Admissions)
+            </dd>
+
+            <dt>
+                Physician:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Physician)
+            </dd>
+
+            <dt>
+                Other:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Other)
+            </dd>
+
+            <dt>
+                Notified Licencing Body&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MOHLTCNotified)
+            </dd>
+
+            <dt>
+                Copy To VP:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.CopyToVP)
+            </dd>
+
+            <dt>
+                Response Sent:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ResponseSent)
+            </dd>
+
+            <dt>
+                Action Taken:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionToken)
+            </dd>
+
+            <dt>
+                Resolved:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Resolved)
+            </dd>
+
+            <dt>
+                Ministry Visit:&nbsp;
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.MinistryVisit)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_Complaints", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

@@ -1,0 +1,144 @@
+﻿@model DSS.BLL.DTO.AssistedLivingInspectionDTO
+
+@{
+    ViewBag.Title = "Details Assisted Living Inspections";
+}
+
+<div>
+    <h1 style="text-align: center;margin-top:15px;   font-size: x-large; color: darkorange; font-weight: bold">Assisted Living Inspections  - Detailed Record</h1>
+    <hr />
+    <div id="center">
+        <dl class="dl-horizontal">
+            <dt>
+                Care Community
+            </dt>
+
+            <dd>
+                @ViewBag.list
+            </dd>
+
+            <dt>
+                Date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Date)
+            </dd>
+
+            <dt>
+                Inspection/Complaint # (where applicable)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InspectComplaint)
+            </dd>
+
+            <dt>
+                Inspection Type/Reason:
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.InspectTypeReason)
+            </dd>
+
+            <dt>
+                No Findings
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoFinding)
+            </dd>
+
+            <dt>
+                Assisted Living Regulation
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AssistLivReg)
+            </dd>
+            <dt>
+                Community Care and Assisted Living Act
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.AssistLivAct)
+            </dd>
+            <dt>
+                Section of the Act or Regulation
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.ActOrReg)
+            </dd>
+            <dt>
+                Subsection of the Act or Regulation
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.SubActOrReg)
+            </dd>
+            <dt>
+                Category
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Category)
+            </dd>
+            <dt>
+                Brief Description of the finding/observation
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.BriefDescOfFinding)
+            </dd>
+
+            <dt>
+                Action Plan
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionPlan)
+            </dd>
+            <dt>
+                Responsibility
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Responsibility)
+            </dd>
+            <dt>
+                Action Date
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ActionDate)
+            </dd>
+        </dl>
+</div>
+    <p>
+        @Html.ActionLink("Back to All Records", "Select_AssistLivInspect", "Select", "", new { id = "backBtn" })
+    </p>
+</div>
+
+<style>
+    #center {
+        width: 420px;
+        margin: auto;
+        border: 1px black solid;
+        position: relative;
+        padding: 17px;
+        border-radius: 22px;
+    }
+
+    #backBtn {
+        border-radius: 22px;
+        border: 2px solid blue;
+        padding: 15px;
+        background-color: white;
+        color: blue;
+        position: absolute;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>
+
+
+

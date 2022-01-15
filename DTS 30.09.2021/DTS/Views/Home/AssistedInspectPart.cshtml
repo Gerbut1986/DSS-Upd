@@ -1,0 +1,150 @@
+﻿
+
+<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            <div style="width:300px">
+                Location
+            </div>
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Inspection/Complaint # (where applicable)
+        </th>
+        <th>
+            Inspection Type/Reason
+        </th>
+        <th>
+            No Findings
+        </th>
+        <th>
+            Assisted Living Regulation
+        </th>
+        <th>
+            Community Care and Assisted Living Act
+        </th>
+        <th>
+            Section of the Act or Regulation
+        </th>
+        <th>
+            Subsection of the Act or Regulation
+        </th>
+        <th>
+            Category
+        </th>
+        <th>
+            <div style="width:330px">
+                Brief Description of the Finding/Observation</div>
+        </th>
+        <th>
+            <div style="width:250px">
+                Action Plan
+            </div>
+        </th>
+        <th>
+            Responsibility
+        </th>
+        <th>
+            Action Date
+        </th>
+        <th></th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.AssistedLivingInspectionDTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+        <tr>
+            <td>
+                @names[item.CareComName - 1]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InspectComplaint)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InspectTypeReason)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoFinding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssistLivReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AssistLivAct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActOrReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SubActOrReg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Category)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BriefDescOfFinding)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionPlan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Responsibility)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ActionDate)
+            </td>
+            <td>
+                <div style="width:200px;margin-top:10px">
+                    @Html.ActionLink("Edit", "Edit_AssistLivingInpect", "Edit", new { id = item.Id }, new { id = "b" })
+                    @Html.ActionLink("Details", "Details_AssistLivingInpect", "Details", new { id = item.Id }, new { id = "b" })
+                    @Html.ActionLink("Delete", "Delete_AssistLivingInpect", "Delete", new { id = item.Id }, new { id = "b" })
+                </div>
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<style>
+    #btns {
+        width: 300px;
+    }
+
+    #b {
+        color: darkorange;
+        padding: 6px;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        #b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+
+

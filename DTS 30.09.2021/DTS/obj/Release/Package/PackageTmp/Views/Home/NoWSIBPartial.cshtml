@@ -1,0 +1,119 @@
+﻿<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            <div style="width:200px">
+                Date of Incident
+                </div>
+        </th>
+        <th>
+            <div style="width:250px">
+                Location
+            </div>
+        </th>
+        <th>
+            Employee Initials/SSLI
+        </th>
+        <th>
+            Position
+        </th>
+        <th>
+            Time of Incident
+        </th>
+        <th>
+            Shift
+        </th>
+        <th>
+            Home Area/Location
+        </th>
+        <th>
+            Injury Related To
+        </th>
+        <th>
+            Type of Injury
+        </th>
+        <th>
+            Details of Incident
+        </th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.Not_WSIBs_DTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date_of_Incident)
+            </td>
+            <td>
+                @names[item.Location - 1]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Employee_Initials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Time_of_Incident)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Shift)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Home_Area)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Injury_Related)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type_of_Injury)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Details_of_Incident)
+            </td>
+            <td>
+                <div style="width:300px;margin-top:15px">
+                    @Html.ActionLink("Edit", "Edit_Not_WSIB", "Edit", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Details", "Not_WSIB_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Delete", "Not_WSIB_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                </div>
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<style>
+    .b {
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+
+
+
+

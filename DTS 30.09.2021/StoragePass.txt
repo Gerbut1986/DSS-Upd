@@ -1,0 +1,18 @@
+****TESTED & WORKING*******
+
+10/21/2021 8:59:22 AM => admin@testing.com | AAg_4313112 | Admin
+10/30/2021 8:23:42 AM => aaa@testing.com | AAg_4313112  |  User
+11/9/2021 9:36:09 AM => regional@testing.ru | AAAAg_4313112 | RegionalUser
+11/1/2021 12:42:08 PM => superuser@testing.com | Met@@2021   |   SuperUser
+
+
+*******NOT TESTED************
+10/25/2021 7:50:02 AM => lulrich@met.com | Met!123
+10/26/2021 8:07:29 AM => test@gmail.com | Qwerty_1
+10/30/2021 8:16:05 AM => y4ekanoff@gmail.com | Ag_4313112
+10/31/2021 10:25:46 AM => shakur@gmail.com | AAAg_4313112
+11/1/2021 12:21:08 PM => lulrich@met.com | Met@@2021
+11/1/2021 12:42:08 PM => hat@met.com | Met@@2021   |  SuperUser
+11/9/2021 9:19:41 AM => newuser@gmail.com | AAAg_4313112 | 
+
+11/12/2021 8:27:17 AM => testEmail@gmail.com | 1qaz!QAZ | 

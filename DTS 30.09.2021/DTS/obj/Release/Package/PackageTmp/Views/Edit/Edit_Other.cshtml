@@ -1,0 +1,112 @@
+﻿@model DSS.BLL.DTO.OtherDTO
+
+@{
+    ViewBag.Title = "Edit Others";
+}
+
+<h1 style="text-align:center;color:darkorange;color:darkorange;font-weight:bold">Others - Edit Form</h1>
+
+@using (Html.BeginForm())
+{
+    <div id="">
+        @Html.AntiForgeryToken()
+        <div style="width:500px;margin:auto">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div style="color:red">
+                * - Required fields
+            </div>
+            <p></p>
+            @Html.HiddenFor(model => model.Id)
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Date:*</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Location:*</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Location, ViewBag.locations as SelectList, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Inspected By:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inspected_By, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inspected_By, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Inspection Number:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Inspection_Number, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Inspection_Number, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Number Of Violations:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Number_of_Violations, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Number_of_Violations, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Notes Comment:</label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Notes_Comments, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Notes_Comments, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <p></p>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Update" class="btn btn-success" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+<div>
+    @Html.ActionLink("Back to All Records", "Select_Others", "Select", "", new { id = "backBtn" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<style>
+    #center {
+        /*width: 500px;
+                            margin: auto;
+                            border: 1px silver solid;
+                            border-radius: 22px;*/
+        padding: 27px;
+    }
+
+    #backBtn {
+        border: 2px blue solid;
+        border-radius: 22px;
+        background-color: white;
+        color: blue;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

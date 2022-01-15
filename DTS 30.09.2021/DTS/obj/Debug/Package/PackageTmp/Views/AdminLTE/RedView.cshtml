@@ -1,0 +1,101 @@
+﻿
+@{
+            
+string oo = $"Code {ViewData["Code"].ToString()} - {ViewData["Exercise"].ToString()}";
+string date = $"{ViewData["Day"].ToString()}-{ViewData["Month"].ToString()}-{ViewData["Year"].ToString()}";
+
+<tr>
+    @if (code.Code.Equals("Red"))
+    {
+        <td style="background-color: red">
+            <label style="background-color:red;width:300px;font-weight:bold;color:white">@oo</label>
+        </td>
+    }
+    else if (code.Code.Equals("Black"))
+    {
+        <td>
+            <label style="background-color:black;color:white;padding:7px">oo</label>
+        </td>
+    }
+    <td>
+        @if (code.Date.Month == 1)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+    <td>
+        @if (code.Date.Month == 2)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+    <td>
+        @if (code.Date.Month == 3)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 4)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 5)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 6)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (item.Date.Month == 7)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 8)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 9)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+    <td>
+        @if (code.Date.Month == 10)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+    <td>
+        @if (code.Date.Month == 11)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+
+    <td>
+        @if (code.Date.Month == 12)
+        {
+            <label style="">@date</label>
+        }
+    </td>
+</tr>
+
+}

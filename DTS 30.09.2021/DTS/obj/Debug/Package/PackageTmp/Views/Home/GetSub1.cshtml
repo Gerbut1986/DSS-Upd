@@ -1,0 +1,9 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Subsection_DTO>
+
+<select id="subsection" name="SubSection">
+    @foreach (var item in Model)
+    {
+        <option value="@item.Id">@item.Name</option>
+    }
+</select>
+

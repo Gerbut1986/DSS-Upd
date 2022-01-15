@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C81B757C-C3C8-4DF1-A7DB-4D27E3388982}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DSS.BLL</RootNamespace>
+    <AssemblyName>DSS.BLL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DSS.DAL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\DSS.DAL\bin\Debug\DSS.DAL.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc.Extensions, Version=1.1.0.6, Culture=neutral, PublicKeyToken=d631f4e4b226a032, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Mvc.Extensions.1.1.1.2\lib\net45\System.Web.Mvc.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DTO\Activities_DTO.cs" />
+    <Compile Include="DTO\AssistedLivingInspectionDTO.cs" />
+    <Compile Include="DTO\BC_Assisted_Living_Reportable_Incidents_DTO.cs" />
+    <Compile Include="DTO\BC_LTC_Reportable_Incidents_DTO.cs" />
+    <Compile Include="DTO\Home_DTO.cs" />
+    <Compile Include="DTO\CI_Category_Type_DTO.cs" />
+    <Compile Include="DTO\Community_Risks_DTO.cs" />
+    <Compile Include="DTO\Complaint_DTO.cs" />
+    <Compile Include="DTO\Critical_Incidents_DTO.cs" />
+    <Compile Include="DTO\Department_DTO.cs" />
+    <Compile Include="DTO\Education_DTO.cs" />
+    <Compile Include="DTO\Emergency_Prep_DTO.cs" />
+    <Compile Include="DTO\Good_News_DTO.cs" />
+    <Compile Include="DTO\Immunization_DTO.cs" />
+    <Compile Include="DTO\InspectionInfo_DTO.cs" />
+    <Compile Include="DTO\InspectType_DTO.cs" />
+    <Compile Include="DTO\Labour_Relations_DTO.cs" />
+    <Compile Include="DTO\LicensingInspectionDTO.cs" />
+    <Compile Include="DTO\LoginSession_DTO.cs" />
+    <Compile Include="DTO\LTCHAReg_DTO.cs" />
+    <Compile Include="DTO\MOH_Inspection_DTO.cs" />
+    <Compile Include="DTO\NonCompleance_DTO.cs" />
+    <Compile Include="DTO\Not_WSIBs_DTO.cs" />
+    <Compile Include="DTO\OtherDTO.cs" />
+    <Compile Include="DTO\OtherOption_DTO.cs" />
+    <Compile Include="DTO\Outbreaks_DTO.cs" />
+    <Compile Include="DTO\Position_DTO.cs" />
+    <Compile Include="DTO\Privacy_Breaches_DTO.cs" />
+    <Compile Include="DTO\Privacy_Complaints_DTO.cs" />
+    <Compile Include="DTO\QualityReview_DTO.cs" />
+    <Compile Include="DTO\Search_Word_DTO.cs" />
+    <Compile Include="DTO\Section_DTO.cs" />
+    <Compile Include="DTO\Sign_in_Main_DTO.cs" />
+    <Compile Include="DTO\Subsection_DTO.cs" />
+    <Compile Include="DTO\Users_DTO.cs" />
+    <Compile Include="DTO\Visits_Agency_DTO.cs" />
+    <Compile Include="DTO\Visits_Others_DTO.cs" />
+    <Compile Include="DTO\WorkshopBCInspection_DTO.cs" />
+    <Compile Include="DTO\WSIB_DTO.cs" />
+    <Compile Include="DTO\ZTest_DTO.cs" />
+    <Compile Include="Helpers\Helper.cs" />
+    <Compile Include="Interfaces\IEmailEntity.cs" />
+    <Compile Include="Interfaces\IEmailSender.cs" />
+    <Compile Include="Interfaces\IModel.cs" />
+    <Compile Include="Interfaces\IServiceDSS.cs" />
+    <Compile Include="Logger\Logger.cs" />
+    <Compile Include="PartialModels\AssistLivInspectSummary.cs" />
+    <Compile Include="PartialModels\BC_AssistSummary.cs" />
+    <Compile Include="PartialModels\BC_LTCSummary.cs" />
+    <Compile Include="PartialModels\ComplaintsSummary.cs" />
+    <Compile Include="PartialModels\ComRiskSummary.cs" />
+    <Compile Include="PartialModels\CriticalIncidentSummary.cs" />
+    <Compile Include="PartialModels\EducationSummary.cs" />
+    <Compile Include="PartialModels\Email\EmailData.cs" />
+    <Compile Include="PartialModels\Email\Credential.cs" />
+    <Compile Include="PartialModels\EmrgencySummary.cs" />
+    <Compile Include="PartialModels\FormsAll.cs" />
+    <Compile Include="PartialModels\GoodNewsSummary.cs" />
+    <Compile Include="PartialModels\ImmunizationSummary.cs" />
+    <Compile Include="PartialModels\IncidentSummaryAll.cs" />
+    <Compile Include="PartialModels\LiceInspectSummary.cs" />
+    <Compile Include="PartialModels\NotWSIBSummary.cs" />
+    <Compile Include="PartialModels\OtherSummary.cs" />
+    <Compile Include="PartialModels\OutbreaksSummary.cs" />
+    <Compile Include="PartialModels\PBreachesSummary.cs" />
+    <Compile Include="PartialModels\PComplaintsSummary.cs" />
+    <Compile Include="PartialModels\QualityReviewSummary.cs" />
+    <Compile Include="PartialModels\RelationsSummary.cs" />
+    <Compile Include="PartialModels\WorkshopSummary.cs" />
+    <Compile Include="PartialModels\WSIBSummary.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\EmailSender.cs" />
+    <Compile Include="Services\ServiceDSS.cs" />
+    <Compile Include="STREAM.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

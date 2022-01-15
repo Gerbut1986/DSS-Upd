@@ -1,0 +1,245 @@
+﻿@model DSS.BLL.DTO.Good_News_DTO
+
+@{
+    ViewBag.Title = "Edit_GoodNews";
+}
+
+    <h1 style="text-align:center;font-weight:bold;color:darkorange"> Good New - Edit Form</h1>
+
+
+@using (Html.BeginForm())
+{
+    <div id="">
+        <div style="width:500px;margin:auto">
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div style="color:red">
+                * - Required fields
+            </div>
+            <p></p>
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Date of News:<span style="color:red">*</span>
+                </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.DateNews, new { htmlAttributes = new { @class = "form-control" } })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Location:<span style="color:red">*</span>
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Location, ViewBag.locations[0] as SelectList, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Category (Good News/Compliment):&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Category, ViewBag.locations[1] as SelectList, "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">Department:&nbsp;</label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Department, ViewBag.locations[2] as SelectList, "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Source of Compliment:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.SourceCompliment, ViewBag.locations[3] as SelectList, "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Received From:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.ReceivedFrom, ViewBag.locations[4] as SelectList, "", new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Description of Compliment / Recognition:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Description_Complim, new { @class = "form-control" })
+                    @*@Html.EditorFor(model => model.Description_Complim, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Description_Complim, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Respect:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Respect)
+                        @Html.ValidationMessageFor(model => model.Respect, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Passion:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Passion)
+                        @Html.ValidationMessageFor(model => model.Passion, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Teamwork:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Teamwork)
+                        @Html.ValidationMessageFor(model => model.Teamwork, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Responsibility:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Responsibility)
+                        @Html.ValidationMessageFor(model => model.Responsibility, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Growth:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.Growth)
+                        @Html.ValidationMessageFor(model => model.Growth, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Compliment / Picture Communicated to SSO Marketing?:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Department, ViewBag.locations[5] as SelectList, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Compliment, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Spot Awards:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Spot_Awards, ViewBag.locations[5] as SelectList, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Spot_Awards, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Spot Awards Details:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Awards_Details, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Awards_Details, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Name of External Award that was Applied For:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.NameAwards, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.NameAwards, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Awards Received (Yes / No):&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.Awards_Received, ViewBag.locations[5] as SelectList, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Awards_Received, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-12" style="font-weight:bold">
+                    Description of Community Initiatives as per KPI:&nbsp;
+                </label>
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.Community_Inititives, new { @class = "form-control" })
+                    @*@Html.EditorFor(model => model.Community_Inititives, new { htmlAttributes = new { @class = "form-control" } })*@
+                    @Html.ValidationMessageFor(model => model.Community_Inititives, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <p></p>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10" style="width:200px;margin:auto">
+                    <input type="submit" value="Update" class="btn btn-primary" />
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div>
+    @Html.ActionLink("Back All Records", "Select_GoodNews", "Select", "", new { id = "backBtn" })
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+<style>
+    #center {
+        /*width: 500px;
+        margin: auto;
+        border: 1px silver solid;
+        border-radius: 22px;*/
+        padding: 17px;
+    }
+
+    #backBtn {
+        border: 2px blue solid;
+        border-radius: 22px;
+        background-color: white;
+        color: blue;
+        padding: 15px;
+        text-decoration: none;
+    }
+
+        #backBtn:hover {
+            background-color: blue;
+            color: white;
+        }
+</style>

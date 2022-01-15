@@ -1,0 +1,120 @@
+﻿@model IEnumerable<DSS.BLL.DTO.OtherDTO>
+@{
+    ViewBag.Title = "Select_Others";
+}
+
+<h1 style="text-align:center;color:darkorange;font-weight:bold"> Other - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <div style="width:200px">
+                    Date
+                </div>
+            </th>
+            <th>
+                <div style="width:100px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Inspected By
+            </th>
+            <th>
+                Inspection Number
+            </th>
+            <th>
+                Number Of Violations
+            </th>
+            <th>
+                Notes Comments
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @ViewBag.list[item.Location - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inspected_By)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Inspection_Number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Number_of_Violations)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Notes_Comments)
+                </td>
+                <td>
+                    <div style="width:200px;margin-top:2px">
+                        @Html.ActionLink("Edit", "Edit_Other", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Other_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Other_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h4 style="text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red">
+        @ViewBag.emptyMsg
+    </h4>
+}
+
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        border-radius: 25px;
+        padding: 14px;
+        color: darkorange;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    #btn {
+        padding: 1px;
+        text-align: center;
+    }
+</style>
+

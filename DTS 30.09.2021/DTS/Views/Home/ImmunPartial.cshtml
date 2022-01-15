@@ -1,0 +1,96 @@
+﻿
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            <div style="width:220px">
+                Location
+            </div>
+        </th>
+        <th>
+            <div style="width:140px">
+                Total Number of Residents in the Community
+            </div>
+        </th>
+        <th>
+            <div style="width:140px">
+                Number of Residents Immunized
+            </div>
+        </th>
+        <th>
+            <div style="width:200px">
+                Number of Residents Not Immunized
+            </div>
+        </th>
+        <th>
+            <div style="width:200px">
+                % of Residents Immunized
+            </div>
+        </th>
+        <th>
+            <div style="width:200px">
+                % of Residents Not Immunized
+            </div>
+        </th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.Immunization_DTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+        <tr>
+            <td>
+                @names[item.Location - 1]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numb_Res_Comm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numb_Res_Immun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Numb_Res_Not_Immun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Per_Res_Immun)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Per_Res_Not_Immun)
+            </td>
+            <td>
+                <div style="width:200px;margin-top:2px">
+                    @Html.ActionLink("Edit", "Edit_Immun", "Edit", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Details", "Immun_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Delete", "Immun_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                </div>
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+

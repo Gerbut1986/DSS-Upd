@@ -1,0 +1,159 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Not_WSIBs_DTO>
+
+@{
+    ViewBag.Title = "Select Not_WSIB";
+}
+
+
+<h1 style="text-align: center;color: darkorange;font-weight: bold">Internal - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <div style="width:300px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Date of Incident
+                @*@Html.DisplayNameFor(model => model.Date_of_Incident)*@
+            </th>
+            <th>
+                Employee Initials/SSLI
+                @*@Html.DisplayNameFor(model => model.Employee_Initials)*@
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                Time of Incident
+                @*@Html.DisplayNameFor(model => model.Time_of_Incident)*@
+            </th>
+            <th>
+                Shift
+                @*@Html.DisplayNameFor(model => model.Shift)*@
+            </th>
+            <th>
+                Home Area/Location
+                @*@Html.DisplayNameFor(model => model.Home_Area)*@
+            </th>
+            <th>
+                Injury Related To
+                @*@Html.DisplayNameFor(model => model.Injury_Related)*@
+            </th>
+            <th>
+                Type of Injury
+                @*@Html.DisplayNameFor(model => model.Type_of_Injury)*@
+            </th>
+            <th>
+                Details of Incident
+                @*@Html.DisplayNameFor(model => model.Details_of_Incident)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @ViewBag.list[item.Location-1]
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_of_Incident)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Employee_Initials)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Position)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Time_of_Incident)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shift)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Home_Area)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Injury_Related)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type_of_Injury)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Details_of_Incident)
+        </td>
+        <td>
+            <div style="width:200px;margin-top:15px">
+            @Html.ActionLink("Edit", "Edit_Not_WSIB", "Edit", new { id = item.Id }, new { id = "b" })
+            @Html.ActionLink("Details", "Not_WSIB_Details", "Details", new { id = item.Id }, new { id = "b" })
+            @Html.ActionLink("Delete", "Not_WSIB_Delete", "Delete", new { id = item.Id }, new { id = "b" })</div>
+        </td>
+    </tr>
+        }
+
+    </table>
+}
+else
+{
+    <h4 style="        text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">@ViewBag.emptyMsg</h4>
+}
+
+<style>
+    #b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+        #b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn { 
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+    }
+
+        #btn:hover {
+            background-color: blue;
+        }
+</style>

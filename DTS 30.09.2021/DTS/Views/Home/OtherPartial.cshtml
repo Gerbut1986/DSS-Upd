@@ -1,0 +1,91 @@
+﻿
+
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            <div style="width:200px">
+                Date
+            </div>
+        </th>
+        <th>
+            <div style="width:100px">
+                Location
+            </div>
+        </th>
+        <th>
+            Inspected By
+        </th>
+        <th>
+            Inspection Number
+        </th>
+        <th>
+            Number Of Violations
+        </th>
+        <th>
+            Notes Comments
+        </th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.OtherDTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @names[item.Location - 1]
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inspected_By)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inspection_Number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Number_of_Violations)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Notes_Comments)
+            </td>
+            <td>
+                <div style="width:200px;margin-top:2px">
+                    @Html.ActionLink("Edit", "Edit_Other", "Edit", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Details", "Other_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                    @Html.ActionLink("Delete", "Other_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                </div>
+            </td>
+        </tr>
+        }
+    }
+
+</table>
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        text-decoration: none;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+
+

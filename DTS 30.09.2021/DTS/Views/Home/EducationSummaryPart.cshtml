@@ -1,0 +1,182 @@
+﻿
+
+<h2 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h2>
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h2 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h2>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:medium">
+                <th scope="col">
+                    <label>Jan</label>
+                </th>
+                <th scope="col">
+                    <label>Feb</label>
+                </th>
+                <th scope="col">
+                    <label>Mar</label>
+                </th>
+                <th scope="col">
+                    <label>Apr</label>
+                </th>
+                <th scope="col">
+                    <label>May</label>
+                </th>
+                <th scope="col">
+                    <label>Jun</label>
+                </th>
+                <th scope="col">
+                    <label>Jul</label>
+                </th>
+                <th scope="col">
+                    <label>Aug</label>
+                </th>
+                <th scope="col">
+                    <label>Sep</label>
+                </th>
+                <th scope="col">
+                    <label>Oct</label>
+                </th>
+                <th scope="col">
+                    <label>Nov</label>
+                </th>
+                <th scope="col">
+                    <label>Dec</label>
+                </th>
+                <th scope="col">
+                    <label>Total Number Education</label>
+                </th>
+                <th scope="col">
+                    <label>Total Number Eligible</label>
+                </th>
+                <th scope="col">
+                    <label> Approx Per Educated </label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.EducationSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                        <tr style="font-size:small;color:black">
+                            <td scope="row">@ci.Jan</td>
+                            <td scope="row">@ci.Feb</td>
+                            <td scope="row">@ci.Mar</td>
+                            <td scope="row">@ci.Apr</td>
+                            <td scope="row">@ci.Mar</td>
+                            <td scope="row">@ci.Jul</td>
+                            <td scope="row">@ci.Jul</td>
+                            <td scope="row">@ci.Aug</td>
+                            <td scope="row">@ci.Sep</td>
+                            <td scope="row">@ci.Oct</td>
+                            <td scope="row">@ci.Nov</td>
+                            <td scope="row">@ci.Dec</td>
+                            <td scope="row">@ci.Total_Numb_Educ</td>
+                            <td scope="row">@ci.Total_Numb_Eligible</td>
+                            <td scope="row">@ci.Approx_Per_Educated</td>
+                        </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h2 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h2>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Jan</label>
+                    </th>
+                    <th scope="col">
+                        <label>Feb</label>
+                    </th>
+                    <th scope="col">
+                        <label>Mar</label>
+                    </th>
+                    <th scope="col">
+                        <label>Apr</label>
+                    </th>
+                    <th scope="col">
+                        <label>May</label>
+                    </th>
+                    <th scope="col">
+                        <label>Jun</label>
+                    </th>
+                    <th scope="col">
+                        <label>Jul</label>
+                    </th>
+                    <th scope="col">
+                        <label>Aug</label>
+                    </th>
+                    <th scope="col">
+                        <label>Sep</label>
+                    </th>
+                    <th scope="col">
+                        <label>Oct</label>
+                    </th>
+                    <th scope="col">
+                        <label>Nov</label>
+                    </th>
+                    <th scope="col">
+                        <label>Dec</label>
+                    </th>
+                    <th scope="col">
+                        <label>Total Number Education</label>
+                    </th>
+                    <th scope="col">
+                        <label>Total Number Eligible</label>
+                    </th>
+                    <th scope="col">
+                        <label> Approx Per Educated </label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.EducationSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                                <tr style="font-size:small;color:black">
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Jan)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Feb)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Mar)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Apr)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].May)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Jun)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Jul)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Aug)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Sep)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Oct)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Nov)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Dec)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Total_Numb_Educ)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Total_Numb_Eligible)</td>
+                                    <td scope="row">@Html.DisplayFor(m => list[ci].Approx_Per_Educated)</td>
+                                </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+

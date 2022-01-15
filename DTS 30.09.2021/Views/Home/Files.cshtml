@@ -1,0 +1,151 @@
+﻿@{
+    ViewBag.Title = "Desision Support System";
+}
+<h3 style="text-align:center;color:red;font-family:'Palatino Linotype'">@ViewBag.not_selected</h3>
+
+
+<h1 style="font-weight:bold;color:darkorange;text-align:center;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">Upload Files</h1>
+<!--<a class="btn btn-primary" style="float:right;width:150px;margin:0 0 0 0" href="../Home/SignIn" id="btn1">Exit<br />Sign in Page</a>-->
+<br />
+<br />
+<br />
+
+<div id="file_upl" class="form-group">
+    @*@Html.TextBox("file", new { id = "FileUpload1" }, new { type = "file" })*@
+    <input type="file" id="FileUpload1" />
+    <br />
+    <input type="button" id="btnUpload" value="Upload File/s" @*class="form-control-file"*@ />
+
+    <h5 style="color:green;font-family:'Palatino Linotype'"> @ViewBag.UploadMsg</h5>
+    <br />
+    @Html.ActionLink("See All Uploaded Files", "AllFiles", "Home", "", new { @class = "btn btn-danger" })
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+                    $(document).ready(function () {
+                        $('#btnUpload').click(function () {
+
+                            // Checking whether FormData is available in browser
+                            if (window.FormData !== undefined) {
+
+                                var fileUpload = $("#FileUpload1").get(0);
+                                var files = fileUpload.files;
+
+                                // Create FormData object
+                                var fileData = new FormData();
+
+                                // Looping over all files and add it to FormData object
+                                for (var i = 0; i < files.length; i++) {
+                                    fileData.append(files[i].name, files[i]);
+                                }
+
+                                $.ajax({
+                                    url: '/Home/Uploded',
+                                    type: "POST",
+                                    contentType: false,
+                                    processData: false,
+                                    data: fileData,
+                                    success: function (result) {
+                                        alert(result);
+                                    },
+                                    error: function (err) {
+                                        alert(err.statusText);
+                                    }
+                                });
+                            } else {
+                                alert("FormData is not supported.");
+                            }
+                        });
+                    });
+</script>
+
+
+<style>
+    label {
+        font-size: large;
+        font-family: 'Times New Roman';
+    }
+
+    #file_upl {
+        border: 0.1px solid black;
+        margin: auto;
+        width: 450px;
+        border-radius: 15px;
+        padding: 35px;
+    }
+
+    #btn2 {
+        border: 1px solid darkorange;
+        border-radius: 4px;
+        float: right;
+        width: 150px;
+        background-color: darkorange;
+        padding: 9px;
+        color: white;
+    }
+
+        #btn2:hover {
+            background-color: floralwhite;
+            color: darkorange;
+        }
+
+    .btnCommunity {
+        color: blue;
+        background-color: azure;
+        padding: 8px;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+
+        .btnCommunity:hover {
+            color: azure;
+            background-color: blue;
+            text-decoration: none;
+        }
+
+        .btnCommunity:active {
+            color: yellow;
+            background-color: darkmagenta;
+            text-decoration: none;
+        }
+
+    .btnPosition {
+        color: blue;
+        background-color: azure;
+        padding: 8px;
+        border-radius: 20px;
+        text-decoration: none;
+    }
+
+        .btnPosition:hover {
+            color: azure;
+            background-color: blue;
+            text-decoration: none;
+        }
+
+        .btnPosition:active {
+            color: yellow;
+            background-color: darkmagenta;
+            text-decoration: none;
+        }
+
+    #drop1:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+
+    #drop2:focus {
+        border-color: #66afe9;
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+        box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(102, 175, 233, .6);
+    }
+
+    #btn {
+        width: 100px;
+        margin: auto;
+    }
+</style>
+

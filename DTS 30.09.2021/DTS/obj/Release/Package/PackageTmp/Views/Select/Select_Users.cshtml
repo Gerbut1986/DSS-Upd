@@ -1,0 +1,209 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Users_DTO>
+
+@{
+    ViewBag.Title = "Select_Users";
+}
+<p style="text-align:right;color:darkred;font-family:'Times New Roman'">
+    Local Machine's Host Name:
+    IP 1:
+    @ViewBag.CurrIP1
+</p>
+<p style="text-align:right;color:darkred;font-family:'Times New Roman'">
+    Local Machine's Host Name:
+    IP 2:
+    @ViewBag.CurrIP2
+</p>
+<h1 style="text-align:center;font-weight:bold;color:darkorange">Users - All Records</h1>
+
+<div style="width:220px;margin:auto">
+    @Html.ActionLink("-- Create New User --", "Register_New_User", "Register", "", new { @class = "btn btn-danger" })
+</div>
+
+@Html.ActionLink("Add New Region", "Region_Insert", "Register", "", new { id = "region" })
+
+@Html.ActionLink("<-- Back", "Register_New_User", "Register", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err == false)
+{
+    <h4 style="text-align:center;color:red;border:2px solid red;border-radius:9px;padding:12px">@ViewBag.emptyMsg</h4>
+}
+else
+{
+    <table class="table table-bordered tab-danger">
+        <tr>
+            <th><div style="width:220px">
+                @Html.DisplayNameFor(model => model.ConfirmedEmail)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Last_Name)
+            </th>
+            <th>
+                <div style="width:150px">
+                    @Html.DisplayNameFor(model => model.Position)
+                </div>
+            </th>
+            <th>
+                <div style="width:150px">
+                    @Html.DisplayNameFor(model => model.Care_Community)
+                </div>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Region)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Week)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Login)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.User_Name)
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date_Register)
+            </th>
+            <th>
+                Role
+            </th>
+            <th></th>
+        </tr>
+        @{
+            int i = -1;
+            List<string> l1 = (List<string>)ViewBag.CareList;
+            foreach (var item in Model)
+            {
+                i++;
+                <tr>
+                            <td>
+                                <div style="display:inline">
+                                <button class="btn btn-success">Allow</button> 
+                                <button class="btn btn-danger">Decline</button>
+                                </div>
+                            </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.First_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Last_Name)
+                    </td>
+                    <td>
+                        @ViewBag.PosList[i]
+                    </td>
+                    <td>
+                        @if (item.Care_Community == 0)
+                        {
+                            <label style="color:Green;font-family:'Palatino Linotype'">@item.Role</label>
+                        }
+                        else
+                        {
+                            if (l1.Count < i)
+                            {
+
+                            }
+                            else
+                            {
+                                @ViewBag.CareList[i]
+                            }
+                        }
+                    </td>
+                    <th>
+                        @Html.DisplayFor(model => item.Region)
+                    </th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Week)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Login)
+                    </td>
+                    @*<td>
+                        @Html.DisplayFor(modelItem => item.Password)
+                    </td>*@
+                    <td>
+                        @Html.DisplayFor(modelItem => item.User_Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Register)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Role)
+                    </td>
+                    <td>
+                        <div style="width:190px">
+                            @Html.ActionLink("Edit", "Edit_User", "Edit", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "User_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "User_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </table>
+}
+
+<style>
+    #region {
+        border: 2px solid brown;
+        border-radius: 22px;
+        float: right;
+        padding: 11px;
+        text-decoration: none;
+        background-color: brown;
+        color: white;
+    }
+        #region:hover {
+            background-color:white;
+            color:brown;
+        }
+        .b {
+            color: darkorange;
+            padding: 6px;
+            font-weight: bold;
+            text-align: center;
+            border: 1px solid darkorange;
+            text-decoration: none;
+            border-radius: 9px;
+        }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        border-radius: 25px;
+        padding: 14px;
+        color: darkorange;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+</style>

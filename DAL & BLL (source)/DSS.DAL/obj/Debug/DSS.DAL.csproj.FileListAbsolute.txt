@@ -1,0 +1,11 @@
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\obj\Debug\DSS.DAL.csproj.CoreCompileInputs.cache
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\DSS.DAL.dll
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\DSS.DAL.pdb
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\EntityFramework.dll
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\EntityFramework.xml
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\obj\Debug\DSS.DAL.csproj.CopyComplete
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\obj\Debug\DSS.DAL.dll
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\obj\Debug\DSS.DAL.pdb
+C:\Users\ldinovich-Admin\Downloads\DSS\DSS\DTS-v3\DSS.DAL\obj\Debug\DSS.DAL.csprojAssemblyReference.cache

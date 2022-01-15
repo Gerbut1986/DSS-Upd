@@ -1,0 +1,1080 @@
+﻿@model DTS.Models.WorTabs
+
+@{ ViewBag.Title = "WOR Tabs";
+}
+
+
+<div>
+    <!-- Bootstrap core JS-->
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+
+    @if (ViewBag.ErrorMsg != null)
+    {
+        <h4 style="text-align:center;color:white;margin-top:10px; border:2px solid red;border-radius:9px;padding:12px;background: red">
+            @ViewBag.ErrorMsg
+        </h4>
+    }
+    else { }
+    <h4 style="text-align:center;font-weight:bold;color:green">@ViewBag.SuccessExport</h4>
+    <br />
+    <div style="width:100%">
+        @using (Html.BeginForm("WOR_Tabs", "Home", FormMethod.Post))
+        {
+            <h3 style="text-align:right;color:darkorange;font-family:'Palatino Linotype'">You Entered as - @ViewBag.Welcome</h3>
+            <hr />
+            <div class="row" style="width:100%">
+                <div class="col-sm-3" style="">
+                    <div class="d-flex" style="width: 100%" id="wrapper">
+                        <!-- Sidebar-->
+                        <div style="width:100%" class="" id="sidebar-wrapper">
+                            <div class="list-group list-group-flush" style="">
+                                <!--Menu Forms-->
+                                <ul class="main" id="" style="font-size:medium;
+                               font-family:'Palatino Linotype';
+                               font-size:medium;
+                               list-style-type: none">
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "1", new { @Name = "formRadio", id = "p1" })
+                                            Critical Incidents
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "2", new { @Name = "formRadio", id = "p1" })
+                                            Complaints
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "3", new { @Name = "formRadio", id = "p1" })
+                                            Good News
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "4", new { @Name = "formRadio", id = "p1" })
+                                            Emergency Prep
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "5", new { @Name = "formRadio", id = "p1" })
+                                            Community Risk or Legal
+                                        </a>
+                                    </li>
+
+                                    <li id="lii" style="list-style-type: none;font-size: medium;font-weight: bold" class="single">
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            Agency Inspections
+                                        </a>
+                                        <ul style="list-style-type: none" class="sub">
+                                            <li id="sub1">
+                                                Ontario
+                                                <ul style="list-style-type: none" class="sub">
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "11", new { @Name = "formRadio", id = "p1" })
+                                                            Ministry of Health
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "12", new { @Name = "formRadio" })
+                                                            Ministry of Labour
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "13", new { @Name = "formRadio" })
+                                                            Fire
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "14", new { @Name = "formRadio" })
+                                                            Public Health
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "15", new { @Name = "formRadio" })
+                                                            Other
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+
+                                            <li id="sub2">
+                                                British Columbia
+                                                <ul style="list-style-type: none" class="sub">
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "11", new { @Name = "formRadio", id = "p1" })
+                                                            Ministry of Health
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "12", new { @Name = "formRadio" })
+                                                            Ministry of Labour
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "13", new { @Name = "formRadio" })
+                                                            Fire
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "14", new { @Name = "formRadio" })
+                                                            Public Health
+                                                        </a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                            @Html.RadioButtonFor(model => model.Param1, "15", new { @Name = "formRadio" })
+                                                            Other
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li id="lii" style="list-style-type: none;font-size: medium;font-weight: bold">
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            Privacy
+                                        </a>
+                                        <ul style="list-style-type: none" class="sub">
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "16", new { @Name = "formRadio" })
+                                                    Breaches
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "17", new { @Name = "formRadio" })
+                                                    Complaints
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    @*<li>
+                                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                @Html.RadioButtonFor(model => model.Param1, "18", new { @Name = "formRadio", id = "p1" })
+                                                Education
+                                            </a>
+                                        </li>*@
+
+                                    @*<li>
+                                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                @Html.RadioButtonFor(model => model.Param1, "19", new { @Name = "formRadio", id = "p1" })
+                                                Labour Relations
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                @Html.RadioButtonFor(model => model.Param1, "20", new { @Name = "formRadio", id = "p1" })
+                                                Immunization
+                                            </a>
+                                        </li>*@
+
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "21", new { @Name = "formRadio", id = "p1" })
+                                            Outbreak
+                                        </a>
+                                    </li>
+
+                                    <li id="lii" style="list-style-type: none;font-size: medium;font-weight: bold">
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            TM Incident
+                                        </a>
+                                        <ul style="list-style-type: none" class="sub">
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "22", new { @Name = "formRadio" })
+                                                    WSIB
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "23", new { @Name = "formRadio" })
+                                                    Internal
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <!-- NEW FORMS BC -->
+                                    <li id="lii" style="list-style-type: none;font-size: medium;font-weight: bold">
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            BC Forms
+                                        </a>
+                                        <ul style="list-style-type: none" class="sub">
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "24", new { @Name = "formRadio" })
+                                                    Licensing Inspections
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "25", new { @Name = "formRadio" })
+                                                    Assisted Living Inspections
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "26", new { @Name = "formRadio" })
+                                                    Worksafe BC Inspections
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "27", new { @Name = "formRadio" })
+                                                    Quality Reviews/QACR
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "28", new { @Name = "formRadio" })
+                                                    Reportable Incidents – LTC
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "29", new { @Name = "formRadio" })
+                                                    Reportable Incidents – Assisted Living
+                                                </a>
+                                            </li>
+                                            @*<li>
+                                                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                                    @Html.RadioButtonFor(model => model.Param1, "31", new { @Name = "formRadio" })
+                                                    Inspections Info
+                                                </a>
+                                            </li>*@
+                                        </ul>
+                                    </li>
+                                    <!-- End NEW FORMS BC -->
+                                    <li>
+                                        <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">
+                                            @Html.RadioButtonFor(model => model.Param1, "31", new { @Name = "formRadio", id = "p1" })
+                                            MOH Inspections
+                                        </a>
+                                </ul>
+                                <!--End Menu Forms-->
+                            </div>
+                        </div>
+                    </div>
+                </div> <!--end col 1-->
+
+                <div class="col-lg-9" style="">
+                    <div style="">
+                        <div style="width:500px;margin:auto">
+                            <ul style="" class="nav nav-tabs-justified ">
+                                <li>
+                                    <button class="btn btn-secondary" style="color:white;font-size:medium;font-weight:bold" name="btn-summary" type="submit">SUMMARY</button>
+                                </li>
+                                <li>
+                                    <p class="btn btn-secondary" name="btn-insert"
+                                       style="width:200px;height:40px; background-color:cornsilk; color:sienna;font-size:medium;font-weight:bold" id="hiddenShow">
+                                        NEW ENTRY
+                                    </p>
+                                </li>
+                                <li>
+                                    <button class="btn btn-secondary" name="btn-export" style="color: white; font-size: medium; font-weight: bold" type="submit">
+                                        EXPORT DATA
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="">
+                        <div style="padding:3px;width:330px;margin:auto">
+                            <ul class="nav nav-justified" style="" id="">
+                                <li id="ll" style="">
+                                    <button id="b1" class="btn btn-primary" name="btn-insert" style="background-color: darkorange" type="submit">
+                                        Input New Record
+                                    </button>
+                                    <button id="b2" class="btn btn-primary" style="background-color:darkorange" name="btn-list">All Records</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="width:100%">
+                        <div class="" style="padding:5px;width:300px;margin:auto">
+                            @*@Html.DropDownListFor(model => model.Filter, new SelectList(new string[] { "1 month back", "2 month back", "3 month back" }, "", ""), new { id = "filter", @class = "form-control" })*@
+                            <br />
+                            <label style="font-size:medium" class="form-check-label">
+                                @Html.RadioButtonFor(model => model.WithRadio, "-with", new { @Name = "range", id = "r1" })
+                                With Date Range
+                            </label>&nbsp; &nbsp;
+                            <label style="font-size:medium" class="form-check-label">
+                                @Html.RadioButtonFor(model => model.WithoutRadio, "-without", new { @Name = "range", id = "r2" })
+                                With All Data
+                            </label>&nbsp; &nbsp;
+                        </div>
+                    </div>
+
+                    <br />
+
+                    <div id="rangePart" style="">
+                        <div style="width:500px;margin:auto">
+                            <ul class="nav nav-justified">
+                                @* <li><label style="font-family:'Palatino Linotype';font-size:medium">Date range:</label></li>*@
+                                <li><label for="start" style="color:darkorange">Start:</label></li>
+                                <li><label>@Html.EditorFor(model => model.Start, new { htmlAttributes = new { @class = "form-control", @id = "start" } })</label> </li>
+                                &nbsp;
+                                &nbsp;
+                                <li><label for="end" style="color:darkorange">End:</label></li>
+                                <li><label>@Html.EditorFor(model => model.End, new { htmlAttributes = new { @class = "form-control", @id = "end" } })</label></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-9" style="">
+                        @if (ViewBag.Check == "none")
+                        {
+
+                        }
+                        else if (ViewBag.Check == "insert")
+                        {
+
+                        }
+                        else if (ViewBag.Check == "search")
+                        {
+                            switch (ViewBag.Check1)
+                            {
+                                case "search1":
+                                    <br /><br />
+                                    <div class="row" style="">
+                                        <label style="text-align:right;font-size:large;color:brown" class="col-sm-4">Search by CI Category Number</label>
+                                        <div style="width:340px" class="col-md-1">
+                                            @Html.DropDownListFor(model => model.Id, ViewBag.ListCI as SelectList, "", new { placeholder = "Input CI Category Type", @class = "form-control", style = "width:320px" })
+                                        </div>
+                                        <div style="width:200px" class="col-md-5">
+                                            <input style="width:100px;margin:auto" name="btn-search" type="submit" value="Search" class="btn btn-danger" />
+                                        </div>
+                                    </div>
+                                    <br /><br />
+                                    <div style="">
+                                        @Html.Partial("IncidentPartial");
+                                    </div>
+                                    break;
+                                case "search2":
+                                    <br /><br />
+                                    <div class="row" style="">
+                                        <label style="text-align:right;font-size:large;color:brown" class="col-sm-4">Search by Department</label>
+                                        <div style="width:340px" class="col-md-1">
+                                            @Html.DropDownListFor(model => model.Id, ViewBag.Department as SelectList, "", new { placeholder = "Input or Select Department", @class = "form-control", style = "width:320px" })
+                                        </div>
+                                        <div style="width:200px" class="col-md-5">
+                                            <input style="width:100px;margin:auto" name="btn-search" type="submit" value="Search" class="btn btn-danger" />
+                                        </div>
+                                    </div>
+                                    <br /><br />
+                                    <div style="">
+                                        @Html.Partial("IncidentPartial");
+                                    </div>
+                                    break;
+                            }
+                        }
+                        else if (ViewBag.Check == "list")
+                        {
+                            if (ViewBag.IsEmpty == false)
+                            {
+                                <h3 style="color:red;font-family:'Palatino Linotype';text-align:center">
+                                    @*This form has no records.*@
+                                </h3>
+                            }
+                            else
+                            {
+                                if (ViewBag.Tbl == "1")
+                                {
+                                    //if (ViewBag.CheckEmpty == false)
+                                    //{
+                                    @*<br /><br />
+                    <div  style="">
+                        <label style="text-align:right;font-size:large;color:brown" class="col-sm-4">Search by CI Category Number</label>
+                        <div style="width:340px" class="col-md-1">
+                            @Html.DropDownListFor(model => model.Id, ViewBag.ListCI as SelectList, "", new { placeholder = "Input CI Category Type", @class = "form-control", style = "width:320px" })
+                        </div>
+                        <div style="width:200px" class="col-md-5">
+                            <input style="width:100px;margin:auto" name="btn-search" type="submit" value="Search" class="btn btn-danger" />
+                        </div>
+                    </div>*@
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Critical Incidents
+                                        </h1>
+                                        @Html.Partial("IncidentPartial")
+                                    </div>
+                                    //}
+                                    @*else
+                    {
+                        <p style="font-size:x-large;text-align:center;margin-top:25px;color:red;font-family:'Palatino Linotype'">@ViewBag.EmptyFilter</p>
+                    }*@
+                                }
+                                else if (ViewBag.Tbl == "2")
+                                {
+                                    @*< <br /><br />
+                                div class="row" style="margin: -300px 0 0 450px">
+                        <label style="text-align:right;font-size:large;color:brown" class="col-sm-4">Search by Department</label>
+                        <div style="width:340px" class="col-md-1">
+                            @Html.DropDownListFor(model => model.Id, ViewBag.Department as SelectList, "", new { placeholder = "Select or Write Department", @class = "form-control", style = "width:320px" })
+                        </div>
+                        <div style="width:200px" class="col-md-5">
+                            <input style="width:100px;margin:auto" name="btn-search" type="submit" value="Search" class="btn btn-danger" />
+                        </div>
+                    </div>*@
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Complaints
+                                        </h1>
+                                        @Html.Partial("ComplaintsPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "3")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Good News
+                                        </h1>
+                                        @Html.Partial("GoToListForm")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "4")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Emergency Prep
+                                        </h1>
+                                        @Html.Partial("EmergencyPrepPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "5")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Community Risks or Legal
+                                        </h1>
+                                        @Html.Partial("RiskLegalPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "6")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Visit Others
+                                        </h1>
+                                        @Html.Partial("VisitOtherPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "15")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Other
+                                        </h1>
+                                        @Html.Partial("OtherPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "16")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Privacy Breaches
+                                        </h1>
+                                        @Html.Partial("PrivacyBreachPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "17")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Privacy Complaints
+                                        </h1>
+                                        @Html.Partial("PrivacyComplaintsPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "18")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Education
+                                        </h1>
+                                        @Html.Partial("EducationPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "19")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Labour Relations
+                                        </h1>
+                                        @Html.Partial("RelationPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "20")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Immunization
+                                        </h1>
+                                        @Html.Partial("ImmunPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "21")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Outbrakes
+                                        </h1>
+                                        @Html.Partial("OutbrakePartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "22")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            WSIB
+                                        </h1>
+                                        @Html.Partial("WSIBPartial");
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "23")
+                                {
+                                    <br /><br /> <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Internal
+                                        </h1>
+                                        @Html.Partial("NoWSIBPartial")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "24")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Licensing Inspection
+                                        </h1>
+                                        @Html.Partial("LicensingInspectionPart")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "25")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Assisted Living Inspection
+                                        </h1>
+                                        @Html.Partial("AssistedInspectPart")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "26")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Workshop BC Inspection
+                                        </h1>
+                                        @Html.Partial("WorkshopBCInspectionPart")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "27")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Quality Review
+                                        </h1>
+                                        @Html.Partial("QualityReviewPart")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "28")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Reportable Incidents - LTC
+                                        </h1>
+                                        @Html.Partial("BC_LTCPart")
+                                    </div>
+                                }
+                                else if (ViewBag.Tbl == "29")
+                                {
+                                    <br /><br />
+                                    <div style="">
+                                        <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                            Reportable Incidents - Assisted Living
+                                        </h1>
+                                        @Html.Partial("BC_LTC_AssistedPart")
+                                    </div>
+                                }
+                            }
+                        }
+                        else if (ViewBag.Check == "summary")
+                        {
+
+                            if (ViewBag.Entity == "Outbreaks")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Outbreaks
+                                    </h1>
+                                    <ul style="list-style-type:none;width:1500px; position:relative;border:1px solid blue;border-radius:15px" class="">
+                                        <li>@{Html.RenderPartial("OutbraksSummaryPart", (List<DSS.BLL.PartialModels.OutbreaksSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Critical_Incidents")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Critical Incidents
+                                    </h1>
+                                    <ul style="list-style-type:none;position:relative;border:1px solid blue;width:1500px;border-radius:15px" class="">
+                                        <li>@{Html.RenderPartial("IncidentsPartial", (List<DSS.BLL.PartialModels.CriticalIncidentSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Complaints")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Complaints
+                                    </h1>
+                                    <ul style="list-style-type: none;width:2700px; position: relative; border: 1px solid blue;border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("ComplaintsSummaryPart", (List<DSS.BLL.PartialModels.ComplaintsSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Good_News")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Good News
+                                    </h1>
+                                    <ul style="list-style-type: none;width:2700px; position: relative; border: 1px solid blue;border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("GoodNewsSummaryPart", (List<DSS.BLL.PartialModels.GoodNewsSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Emergency_Prep")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Emergency Prep
+                                    </h1>
+                                    <ul style="list-style-type: none; position: relative;width:1500px; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("EmergencyPrepSummaryPart", (List<DSS.BLL.PartialModels.EmrgencySummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Visits_Others")
+                            {
+                                <br /><br />
+                                <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                </h1>
+                                <ul style="list-style-type: none; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                    <li>@{Html.RenderPartial("VisitsOthersPartial", (List<string>)ViewBag.GN_Found);}</li>
+                                </ul>
+                            }
+                            else if (ViewBag.Entity == "Community_Risks")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Community Risks
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("CommunityRisksPart", (List<DSS.BLL.PartialModels.ComRiskSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Labour_Relations")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Labour Relations
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("LRelationsSummaryPart", (List<DSS.BLL.PartialModels.RelationsSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "WSIB")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        WSIB
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("WSIBSummaruPart", (List<DSS.BLL.PartialModels.WSIBSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Not_WSIB")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Internal
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px;position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("NotWSIBSummaryPart", (List<DSS.BLL.PartialModels.NotWSIBSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Other")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Other
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px;position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("OtherSummaryPart", (List<DSS.BLL.PartialModels.OtherSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Privacy_Breaches")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Privacy Breaches
+                                    </h1>
+                                    <ul style="list-style-type: none; width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("PBreachesSummaryPart", (List<DSS.BLL.PartialModels.PBreachesSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Privacy_Complaints")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Privacy Complaints
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("PComplaintsSummaryPart", (List<DSS.BLL.PartialModels.PComplaintsSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Educations")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Education
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("EducationSummaryPart", (List<DSS.BLL.PartialModels.EducationSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "Immunization")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Immunization
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("ImmunizatSummaryPart", (List<DSS.BLL.PartialModels.ImmunizationSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "LiceningInspections")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Licensing Inspections
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("LiceInspectSummaryPart", (List<DSS.BLL.PartialModels.LiceInspectSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "AssistLivInspect")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Assisted Living Inspections
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("AssistLivInspecSummaryPart", (List<DSS.BLL.PartialModels.AssistLivInspectSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "WorksaveBC")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Worksafe BC Inspections
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("WorksaveBCSummaryPart", (List<DSS.BLL.PartialModels.WorkshopSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+
+                            else if (ViewBag.Entity == "QualityReviews")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Quality Reviews/QACR
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("QualityReviewSummaryPart", (List<DSS.BLL.PartialModels.QualityReviewSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "BC_LTCReport")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Reportable Incidents - LTC
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("BC_LTCReportSummaryPart", (List<DSS.BLL.PartialModels.BC_LTCSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                            else if (ViewBag.Entity == "BC_AssisLivRep")
+                            {
+                                <br /><br />
+                                <div style="">
+                                    <h1 style="text-align:center;font-family:'Palatino Linotype';color:darkorange">
+                                        Reportable Incidents - Assisted Living
+                                    </h1>
+                                    <ul style="list-style-type: none;width:1500px; position: relative; border: 1px solid blue; border-radius: 15px" class="">
+                                        <li>@{Html.RenderPartial("BC_AssisLivRepSummaryPart", (List<DSS.BLL.PartialModels.BC_AssistSummary>)ViewBag.GN_Found);}</li>
+                                    </ul>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div> <!--end col 2-->
+            </div> <!-- end row -->
+
+        }
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $('ul').hide;
+        $('.main li').click(function () {
+            $(this).find('.sub').slideToggle();
+        })
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#filter").hide("slow");
+        $("#r2").click(function () {
+            $("#rangePart").hide("slow");
+            $("#filter").hide("slow");
+        });
+        $("#r1").click(function () {
+            $("#rangePart").show("slow");
+            $("#filter").hide("slow");
+        });
+        $("#r3").click(function () {
+            $("#rangePart").hide("slow");
+            $("#filter").show("slow");
+        });
+    });
+</script>
+
+<style>
+    #nameApp {
+        font-family: 'Times New Roman';
+        font-weight: bold;
+        font-size: x-large;
+        float: left;
+        height: 50px;
+        padding: 15px 15px;
+        font-size: 18px;
+        line-height: 20px;
+        color: darkorange;
+    }
+
+        #nameApp:hover {
+            text-decoration: none;
+            color: navajowhite;
+        }
+</style>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+    function saveTextAsFile() {
+        $.ajax({
+            type: "POST",
+            contentType: "application/json",
+            data: myJSON,
+            url: "/Home/ExportToCSV",
+            dataType: "json"
+        });
+    }
+
+
+    $(document).ready(function () {
+        $("#ll").hide();
+        $("#hiddenShow").click(function () {
+            var sel = document.getElementById("ll").style;
+            if (sel.display == "none")
+                $("#ll").show("slow");
+            else $("#ll").hide("slow");
+        });
+    });
+
+</script>
+
+<style>
+    li #start, #end {
+        margin: -50px 0 0 0;
+    }
+
+    #b1, #b2 {
+        height: 35px;
+        width: 154px;
+    }
+
+    button {
+        width: 150px;
+        height: 40px;
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    #btns {
+        padding: 10px;
+        font-size: x-large;
+    }
+
+    #rightBox {
+        margin: 0 0 0 550px;
+        width: 900px;
+        padding: 22px;
+        height: 1050px
+    }
+
+    #container {
+        text-align: left;
+        position: absolute;
+        height: 550px;
+        margin-right: 22px;
+        padding: 22px;
+        margin: 0 0 0 -50px;
+    }
+
+    #ref {
+        /*margin: 0 0 0 -55px;*/
+        padding: 23px;
+        border: 4px solid darkorange;
+        border-radius: 12px;
+        text-decoration: none;
+        color: mediumslateblue;
+        height: 540px;
+        width: 300px;
+    }
+
+    #div #ref {
+        position: relative;
+        /*     top: 0;
+        left: 0;*/
+        width: 100%;
+        height: 540px;
+    }
+
+    /* #ref:hover {
+            color: darkorange;
+        }*/
+
+    #lii {
+        list-style-type: none;
+    }
+
+    #sub1::before {
+        content: '+';
+    }
+
+    #sub2::before {
+        content: '+';
+    }
+
+    #lii::before {
+        content: '+';
+    }
+
+    p1 {
+        font-size: small;
+    }
+
+    body {
+        /* font-size: 20px;
+        font-weight: 500;*/
+        /*font-family: sans-serif;*/
+    }
+
+    .sub {
+        display: none;
+    }
+
+    #r1 {
+        font-size: medium;
+    }
+</style>
+
+
+

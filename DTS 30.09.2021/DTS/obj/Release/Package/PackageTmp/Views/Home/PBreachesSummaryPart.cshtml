@@ -1,0 +1,126 @@
+﻿
+
+
+
+
+<h2 style="text-align:center;color:darkorchid">@ViewBag.ObjName (Records Found - <span style="color:gold">@ViewBag.Count</span>) for <span style="color:crimson">@ViewBag.LocInfo</span></h2>
+
+
+
+@if (ViewBag.Check1 == true && ViewBag.EmptLocation == true)
+{
+    <h2 style="text-align:center;color:tomato;font-family:'Palatino Linotype';font-weight:bold">
+        Summary For All Locations:
+    </h2>
+    <table class="table table-bordered" style="">
+        <thead>
+            <tr style="font-size:small">
+                <th scope="col">
+                    <label>Status</label>
+                </th>
+                <th scope="col">
+                    <label>Description Outcome</label>
+                </th>
+                <th scope="col">
+                    <label>Date Breach Reported By</label>
+                </th>
+                <th scope="col">
+                    <label>
+                         Type of Breach 
+                    </label>
+                </th>
+                <th scope="col">
+                    <label>Type of PHI Involved</label>
+                </th>
+                <th scope="col">
+                    <label>Number of Individuals Affected</label>
+                </th>
+                <th scope="col">
+                    <label>Risk Level</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @{
+                List<DSS.BLL.PartialModels.PBreachesSummaryAll> arr = ViewBag.TotalSummary;
+                foreach (var ci in arr)
+                {
+                    <tr style="font-size:small;color:black">
+                        <td scope="row">@ci.Status</td>
+                        <td scope="row">@ci.Description_Outcome</td>
+                        <td scope="row">@ci.Date_Breach_Reported_By</td>
+                        <td scope="row">@ci.Type_of_Breach</td>
+                        <td scope="row">@ci.Type_of_PHI_Involved</td>
+                        <td scope="row">@ci.Number_of_Individuals_Affected</td>
+                        <td scope="row">@ci.Risk_Level</td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    foreach (var l in ViewBag.Locations)
+    {
+        <h2 style="text-align:center;color:darkorange;font-family:'Times New Roman'">@l</h2>
+        <table class="table table-bordered" style="">
+            <thead>
+                <tr style="font-size:small">
+                    <th scope="col">
+                        <label>Status</label>
+                    </th>
+                    <th scope="col">
+                        <label>Description Outcome</label>
+                    </th>
+                    <th scope="col">
+                        <label>Date Breach Reported By</label>
+                    </th>
+                    <th scope="col">
+                        <label>
+                            Type of Breach
+                        </label>
+                    </th>
+                    <th scope="col">
+                        <label>Type of PHI Involved</label>
+                    </th>
+                    <th scope="col">
+                        <label>Number of Individuals Affected</label>
+                    </th>
+                    <th scope="col">
+                        <label>Risk Level</label>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    List<DSS.BLL.PartialModels.PBreachesSummary> list = ViewBag.GN_Found;
+                    for (int ci = 0; ci < list.Count; ci++)
+                    {
+                        if (list[ci].LocationName == l)
+                        {
+                            <tr style="font-size:small;color:black">
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Status)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Date_Breach_Reported_By)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Type_of_Breach)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Type_of_PHI_Involved)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Number_of_Individuals_Affected)</td>
+                                <td scope="row">@Html.DisplayFor(m => list[ci].Risk_Level)</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    }
+}
+else
+{
+    <h3 style="font-family:'Palatino Linotype';color:red">Locations or another records for summary does NOT exist in the table...</h3>
+}
+
+
+
+
+
+
+
+

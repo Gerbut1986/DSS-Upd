@@ -1,0 +1,115 @@
+﻿<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+
+@{
+    string[] names = ViewBag.Names;
+    var list = (List<DSS.BLL.DTO.Labour_Relations_DTO>)ViewBag.List; }
+
+
+@if (list.Count != 0)
+{
+    <table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+        <tr>
+            <th>
+                Date
+            <th>
+                <div style="width:250px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Accruals
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Details
+            </th>
+            <th>
+                Lessons Learned
+            </th>
+            <th>
+                Outcome
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                Union
+            </th>
+        </tr>
+
+        @foreach (var item in list)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @names[item.Location - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Accruals)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lessons_Learned)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Outcome)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Union)
+                </td>
+                
+                <td id="btns">
+                    <div style="width:200px">
+                        @Html.ActionLink("Edit", "Edit_Labour", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Labour_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Labour_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h3 style="color:red;font-family:'Palatino Linotype'">The table is Empty... Try to fill it in!</h3>
+}
+
+
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+

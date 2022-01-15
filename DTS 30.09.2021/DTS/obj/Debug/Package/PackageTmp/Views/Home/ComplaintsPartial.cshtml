@@ -1,0 +1,229 @@
+﻿
+<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table class="table table-bordered">
+    <thead>
+        <tr style="font-size:medium;font-family:'Palatino Linotype'">
+            <th>
+                Date Received
+            </th>
+            <th>
+                <div style="width:200px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Writen Or Verbal
+            </th>
+            <th>
+                Receive Directly
+            </th>
+            <th>
+                From Resident
+            </th>
+            <th>
+                Resident Name
+            </th>
+            <th>
+                Department
+            </th>
+            <th>
+                Home Area
+            </th>
+            <th>
+                Brief Description
+            </th>
+            <th>
+                Is Administration
+            </th>
+            <th>
+                Care Services
+            </th>
+            <th>
+                Palliative Care
+            </th>
+            <th>
+                Dietary
+            </th>
+            <th>
+                Housekeeping
+            </th>
+            <th>
+                Laundry
+            </th>
+            <th>
+                Maintenance
+            </th>
+            <th>
+                Programs
+            </th>
+            <th>
+                Admissions
+            </th>
+            <th>
+                Physician
+            </th>
+            <th>
+                Other
+            </th>
+            <th>
+                MOHLTC Notified
+            </th>
+            <th>
+                Copy To VP
+            </th>
+            <th>
+                Response Sent
+            </th>
+            <th>
+                Action Taken
+            </th>
+            <th>
+                Resolved
+            </th>
+            <th>
+                Ministry Visit
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            string[] names = ViewBag.Names;
+            var list = (List<DSS.BLL.DTO.Complaint_DTO>)ViewBag.List;
+            foreach (var item in list)
+            {
+                <tr style="font-family: 'Palatino Linotype';font-size:smaller">
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateReceived)
+                    </td>
+                    <td>
+                        @names[item.Location - 1]
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WritenOrVerbal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Receive_Directly)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FromResident)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResidentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Department)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.HomeArea)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BriefDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.IsAdministration)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CareServices)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PalliativeCare)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dietary)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Housekeeping)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Laundry)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Maintenance)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Programs)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Admissions)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Physician)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Other)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MOHLTCNotified)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CopyToVP)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ResponseSent)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ActionToken)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Resolved)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MinistryVisit)
+                    </td>
+                    <td>
+                        <div id="btns">
+                            @Html.ActionLink("Edit", "Edit_Complaints", "Edit", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Details", "Complaints_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                            @Html.ActionLink("Delete", "Complaints_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                        </div>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+
+<style>
+    #btns {
+        width: 300px;
+    }
+
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        text-decoration: none;
+        font-size: medium;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+         
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+

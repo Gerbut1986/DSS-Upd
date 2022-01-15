@@ -1,0 +1,202 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Outbreaks_DTO>
+
+@{
+    ViewBag.Title = "Outbreaks";
+}
+
+
+    <div style="" class="">
+        <h1 style="text-align: center; color: darkorange;font-weight: bold">Outbreaks - All Records</h1>
+
+        @Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })  <br /><br /><br />
+        @if (ViewBag.err)
+        {
+            <table class="table table-bordered" style="float:left;">
+                <tr>
+                    <th>
+                        Date Declared
+                    </th>
+                    <th>
+                        <div style="width:300px">
+                            Location
+                        </div>
+                    </th>
+                    <th>
+                        Date Concluded
+                    </th>
+                    <th>
+                        Type of Outbreak
+                    </th>
+                    <th>
+                        Total Days Closed
+                    </th>
+                    <th>
+                        Total Residents Affected
+                    </th>
+                    <th>
+                        Total Staff Affected
+                    </th>
+                    <th>
+                        Strain Identified
+                    </th>
+                    <th>
+                        Deaths Due to this Outbreak
+                    </th>
+                    <th>
+                        CI Report Submitted
+                    </th>
+                    <th>
+                        Notify MOL if Staff Bcome Ill due to Outbreak
+                    </th>
+                    <th>
+                        Credit for Lost Days - Total # of Days of Credit
+                    </th>
+                    <th>
+                        Tracking Sheet Completed
+                    </th>
+                    <th>
+                        Documents Submitted to Finance
+                    </th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date_Declared)
+                        </td>
+                        <td>
+                            @ViewBag.list[item.Location - 1]
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Date_Concluded)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Type_of_Outbreak)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Days_Closed)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Residents_Affected)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total_Staff_Affected)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Strain_Identified)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Deaths_Due)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CI_Report_Submitted)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Notify_MOL)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Credit_for_Lost_Days)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Tracking_Sheet_Completed)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Docs_Submitted_Finance)
+                        </td>
+                        <td style="text-align:center">
+                            <div style="width:200px">
+                                @Html.ActionLink("Edit", "Edit_Outbreaks", "Edit", new { id = item.Id }, new { @class = "edt" })
+                                @Html.ActionLink("Details", "Outbreaks", "Details", new { id = item.Id }, new { @class = "edt" })
+                                @Html.ActionLink("Delete", "Outbreaks_Delete", "Delete", new { id = item.Id }, new { @class = "edt" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <h4 style="        text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red
+">@ViewBag.emptyMsg</h4>
+        }
+
+        <style>
+            .edt {
+                border: 1px solid darkorange;
+                color: blue;
+                border-radius: 8px;
+                padding: 7px;
+            }
+
+                .edt:hover {
+                    background-color: darkorange;
+                    color: darkorange;
+                }
+
+            #nameApp {
+                font-family: 'Times New Roman';
+                font-weight: bold;
+                font-size: x-large;
+                float: left;
+                height: 50px;
+                padding: 15px 15px;
+                font-size: 18px;
+                line-height: 20px;
+                color: darkorange;
+            }
+
+                #nameApp:hover {
+                    text-decoration: none;
+                    color: navajowhite;
+                }
+        </style>
+    </div>
+    
+
+
+
+
+
+
+<style>
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        border-radius: 25px;
+        padding: 14px;
+        color: darkorange;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .edt {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        text-align: center;
+    }
+
+        .edt:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+
+        .edt:active {
+            color: green;
+            background-color: lawngreen
+        }
+</style>

@@ -1,0 +1,160 @@
+﻿@model IEnumerable<DSS.BLL.DTO.Community_Risks_DTO>
+
+@{
+    ViewBag.Title = "Select_Community";
+}
+
+<h1 style="text-align: center; color: darkorange; font-weight: bold"> Community Risks - All Records</h1>
+
+@Html.ActionLink("<-- Back", "WOR_Tabs", "Home", "", new { id = "back" })
+<br />
+<br />
+<br />
+@if (ViewBag.err)
+{
+    using (Html.BeginForm("Select_Community", "Select", FormMethod.Post))
+    {
+        <h3 style="text-align:center;color:green;font-family:'Palatino Linotype'"> @ViewBag.info_insert </h3>
+
+        <input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+        <input type="submit" style="background-color: darkorange;border-radius: 9px;color:black" value="⌄" name="btn-downSort" />
+    }
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                Date
+            <th>
+                <div style="width:250px">
+                    Location
+                </div>
+            </th>
+            <th>
+                Type Of Risk
+            </th>
+            <th>
+                <div style="width:330px">
+                    Descriptions
+                </div>
+            </th>
+            <th>
+                Potential Risk
+            </th>
+            <th>
+                MOH Visit
+            </th>
+            <th>
+                Risk Legal Action
+            </th>
+            <th>
+                Hot Alert
+            </th>
+            <th>
+                Status Update
+            </th>
+            <th>
+                Resolved
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @ViewBag.list[item.Location - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Type_Of_Risk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descriptions)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Potential_Risk)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOH_Visit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Risk_Legal_Action)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Hot_Alert)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status_Update)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Resolved)
+                </td>
+                <td id="btns">
+                    <div style="width:200px">
+                        @Html.ActionLink("Edit", "Edit_Community", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "Community_Details", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Community_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+    </table>
+}
+else
+{
+    <h4 style="text-align: center;
+        color: white;
+        border: 2px solid red;
+        border-radius: 9px;
+        padding: 12px;
+        background: red">
+        @ViewBag.emptyMsg
+    </h4>
+}
+<style>
+    .b {
+        color: darkorange;
+        padding: 6px;
+        font-weight: bold;
+        border: 1px solid darkorange;
+        border-radius: 10px;
+        text-decoration: none;
+        text-align: center;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            border-radius: 10px;
+        }
+
+    #back {
+        text-decoration: none;
+        border: 2px solid darkorange;
+        color: darkorange;
+        border-radius: 25px;
+        padding: 14px;
+    }
+
+        #back:hover {
+            background-color: darkorange;
+            color: white;
+        }
+
+    .btnn {
+        text-decoration: none;
+    }
+
+    #btn {
+        padding: 5px;
+        text-align: center;
+        border-radius: 12px;
+        margin-bottom: 4px;
+    }
+
+        #btn:hover {
+        }
+</style>

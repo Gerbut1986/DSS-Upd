@@ -1,0 +1,165 @@
+﻿<input type="submit" style="background-color:darkorange;border-radius:9px;color:black" value="^" name="btn-upSort" />
+<input type="submit" style="        background-color: darkorange;
+        border-radius: 9px;
+        color: black
+" value="⌄" name="btn-downSort" />
+
+<table style="font-size:medium;font-family:'Palatino Linotype'" class="table table-bordered">
+    <tr>
+        <th>
+            Date Start
+        </th>
+        <th>
+            Session Name
+        </th>
+        <th>
+            <div style="width:300px">
+                Location
+            </div>
+        </th>
+        <th>
+            Jan
+        </th>
+        <th>
+            Feb
+        </th>
+        <th>
+            Mar
+        </th>
+        <th>
+            Apr
+        </th>
+        <th>
+            May
+        </th>
+        <th>
+            Jun
+        </th>
+        <th>
+            Jul
+        </th>
+        <th>
+            Aug
+        </th>
+        <th>
+            Sep
+        </th>
+        <th>
+            Oct
+        </th>
+        <th>
+            Nov
+        </th>
+        <th>
+            Dec
+        </th>
+        <th>
+            Total Number Educated
+        </th>
+        <th>
+            Total Number Eligible
+        </th>
+        <th>
+            Approx. % Educated
+        </th>
+    </tr>
+    @{
+        string[] names = ViewBag.Names;
+        var list = (List<DSS.BLL.DTO.Education_DTO>)ViewBag.List;
+        foreach (var item in list)
+        {
+            <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DateStart)
+                    </td>
+                <td>
+    @Html.DisplayFor(modelItem => item.Session_Name)
+</td>
+                <td style="width:500px">
+                    @names[item.Location - 1]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Feb)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Mar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Apr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.May)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jun)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jul)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Aug)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Oct)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nov)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Dec)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_Numb_Educ)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Total_Numb_Eligible)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Approx_Per_Educated)
+                </td>
+                <td id="btns">
+                    <div style="width:300px">
+                        @Html.ActionLink("Edit", "EditEducation", "Edit", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Details", "EducationDetails", "Details", new { id = item.Id }, new { @class = "b" })
+                        @Html.ActionLink("Delete", "Education_Delete", "Delete", new { id = item.Id }, new { @class = "b" })
+                    </div>
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<style>
+    #btns {
+        width: 300px;
+    }
+
+    .b {
+        color: darkorange;
+        padding: 6px;
+        border: 1px solid darkorange;
+        border-radius: 9px;
+        font-size: medium;
+        font-weight: bold;
+        text-align: center;
+    }
+
+        .b:hover {
+            border: 1px solid darkorange;
+            padding: 5px;
+            color: white;
+            background-color: darkorange;
+            text-decoration: none;
+            border-radius: 10px;
+        }
+</style>
+
+
+
+
